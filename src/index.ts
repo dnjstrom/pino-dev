@@ -2,9 +2,7 @@ import bourne from "@hapi/bourne";
 import chalk from "chalk";
 import stripAnsi from "strip-ansi";
 import { format } from "date-fns";
-import debugFactory from "debug";
-
-const debug = debugFactory("pino-dev");
+import { debug } from "./debug";
 
 const levelToString = (level: number): string => {
   switch (level) {
@@ -57,8 +55,38 @@ type Input = {
   stack: string | undefined;
   time: Date;
 };
-const parseInput = (input: string): Input => {
+
+type PropertyMap = Record<string, string>;
+
+const getDeep = (keys: string[], obj: any): any => {
+  const [key, ...remainingKeys] = keys;
+
+  if (key == null) {
+    return obj;
+  }
+
+  return getDeep(remainingKeys, obj[key]);
+};
+
+const mapProperties = (propertyMap: PropertyMap, input: any): any => {
+  const mapped = input;
+  Object.entries(propertyMap).reduce((agg, [to, from]) => {
+    if (typeof from !== "string") {
+      throw new Error(
+        `Invalid property mapping for "${to}": ${JSON.stringify(from)}.`
+      );
+    }
+    agg[to] = getDeep(from.split("."), input);
+    return agg;
+  }, mapped);
+};
+
+const parseInput = (
+  propertyMap: Record<string, string>,
+  input: string
+): Input => {
   const parsed = bourne.parse(input, { protoAction: "remove" });
+  const mapped = mapProperties(propertyMap, parsed);
 
   if (parsed.msg == null) {
     throw new Error("Input is missing `msg`-property");
@@ -84,11 +112,22 @@ const parseInput = (input: string): Input => {
   };
 };
 
-export const prettifierFactory = () => {
+const defaultPropertyMap = {
+  msg: "msg",
+  level: "level",
+  ns: "ns",
+  name: "name",
+  stack: "stack",
+  time: "time",
+};
+
+export const prettifierFactory = (options: {
+  propertyMap?: Record<string, string>;
+}) => {
   return (line: string) => {
     let input: Input;
     try {
-      input = parseInput(line);
+      input = parseInput(options.propertyMap ?? defaultPropertyMap, line);
     } catch (err) {
       // Avoid logging for non-json input.
       debug(`Error parsing input: \`${line}\``);
