@@ -1,8 +1,9 @@
 {
   "name": "pino-dev",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A batteries-included prettifier for pino adapted for development environments.",
-  "private": true,
+  "author": "Daniel Ström <D@nielstrom.se>",
+  "license": "ISC",
   "main": "dist/index.js",
   "bin": {
     "pino-dev": "dist/bin.js"
@@ -33,6 +34,14 @@
       "**/test/*.ts"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dnjstrom/pino-dev"
+  },
+  "bugs": {
+    "url": "https://github.com/dnjstrom/pino-dev/issues"
+  },
+  "homepage": "https://github.com/dnjstrom/pino-dev#readme",
   "keywords": [
     "pino",
     "pretty-printer",
@@ -40,8 +49,6 @@
     "logger",
     "transport"
   ],
-  "author": "Daniel Ström",
-  "license": "ISC",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/debug": "^4.1.5",
