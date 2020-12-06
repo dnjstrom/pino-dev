@@ -1,0 +1,74 @@
+{
+  "name": "pino-dev",
+  "version": "0.0.1",
+  "description": "A batteries-included prettifier for pino adapted for development environments.",
+  "private": true,
+  "main": "dist/index.js",
+  "bin": {
+    "pino-dev": "dist/bin.js"
+  },
+  "scripts": {
+    "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
+    "test": "jest",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint '*/**/*.ts' --fix"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "prettier": {},
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/*.ts"
+    ]
+  },
+  "keywords": [
+    "pino",
+    "pretty-printer",
+    "ndjson",
+    "logger",
+    "transport"
+  ],
+  "author": "Daniel Ström",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^26.0.16",
+    "@types/node": "^14.14.10",
+    "@types/pump": "^1.1.0",
+    "@types/readable-stream": "^2.3.9",
+    "@types/split2": "^2.1.6",
+    "@types/strip-ansi": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@hapi/bourne": "^2.0.0",
+    "chalk": "^2.4.2",
+    "date-fns": "^2.16.1",
+    "debug": "^4.3.1",
+    "pump": "^3.0.0",
+    "readable-stream": "^2.3.7",
+    "split2": "^2.2.0",
+    "strip-ansi": "^6.0.0"
+  }
+}
