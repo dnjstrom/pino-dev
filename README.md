@@ -1,6 +1,6 @@
 # pino-dev
 
-A simple prettifier for pino with built-in support for commonly used ecosystem packages.
+A simple prettifier for `pino` with built-in support for commonly used ecosystem packages (currently `pino-http` and `pino-debug`).
 
 **DISCLAIMER**: This is currently alpha software under active development.
 
@@ -23,7 +23,7 @@ Then pipe the output of your `pino`-enhanced app to the `pino-dev` cli in your p
 }
 ```
 
-In some cases using `npx` can also be really convenient:
+In some situations using `npx` can also be really convenient:
 
 ```bash
 yarn start | npx pino-dev
