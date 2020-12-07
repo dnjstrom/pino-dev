@@ -1,39 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formatting examples formats example #0 correctly 1`] = `"{\\"msg\\":\\"A message without level.\\",\\"timestamp\\":-14162625000}"`;
+exports[`formatting examples formats example #0 correctly 1`] = `
+"{\\"msg\\":\\"A message without level.\\",\\"time\\":-14162625000}
+"
+`;
 
-exports[`formatting examples formats example #1 correctly 1`] = `"{\\"level\\":4456789}"`;
+exports[`formatting examples formats example #1 correctly 1`] = `
+"{\\"level\\":4456789}
+"
+`;
 
-exports[`formatting examples formats example #2 correctly 1`] = `"{\\"msg\\":\\"A message without timestamp\\",\\"level\\":10}"`;
+exports[`formatting examples formats example #2 correctly 1`] = `
+"{\\"msg\\":\\"A message without time\\",\\"level\\":10}
+"
+`;
 
-exports[`formatting examples formats example #3 correctly 1`] = `"[90m02:56:15.00 [acme] [31m[1mFatal[22m[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #3 correctly 1`] = `
+"[90m02:56:15.000 [acme] [31m[1mFatal[22m[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #4 correctly 1`] = `"[90m02:56:15.00 [acme] [31mError[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #4 correctly 1`] = `
+"[90m02:56:15.000 [acme] [31mError[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #5 correctly 1`] = `"[90m02:56:15.00 [acme] [33mWarn[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #5 correctly 1`] = `
+"[90m02:56:15.000 [acme] [33mWarn[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #6 correctly 1`] = `"[90m02:56:15.00 [acme] [32mInfo[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #6 correctly 1`] = `
+"[90m02:56:15.000 [acme] [32mInfo[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #7 correctly 1`] = `"[90m02:56:15.00 [acme] [34mDebug[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #7 correctly 1`] = `
+"[90m02:56:15.000 [acme] [34mDebug[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #8 correctly 1`] = `"[90m02:56:15.00 [acme] [36mTrace[90m: [39mThis is a message"`;
+exports[`formatting examples formats example #8 correctly 1`] = `
+"[90m02:56:15.000 [acme] [36mTrace[90m: [39mThis is a message
+"
+`;
 
-exports[`formatting examples formats example #9 correctly 1`] = `"[90m02:56:15.00 [acme > express:router] [36mTrace[90m: [39mquery  : /some-route"`;
+exports[`formatting examples formats example #9 correctly 1`] = `
+"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mGET[39m / [32m200[39m  3 ms
+"
+`;
 
-exports[`formatting examples formats example #10 correctly 1`] = `"[90m02:56:15.00 [34mDebug[90m: [39mThis is a message without name"`;
+exports[`formatting examples formats example #10 correctly 1`] = `
+"[90m02:56:15.000 [acme > express:router] [36mTrace[90m: [39mA message with a namespace
+"
+`;
 
 exports[`formatting examples formats example #11 correctly 1`] = `
-"[90m02:56:15.00 [acme] [31mError[90m: [39mUncaught exception
-                          Error: This is an error
-                              at Producer.flush (/app/node_modules/some-file.js:245:11)
-                              at Producer.disconnect (/app/node_modules/some-file.js:288:8)
-                              at process.<anonymous> (/app/src/foobar.ts:81:12)
-                              at process.emit (events.js:323:22)
-                              at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)"
+"[90m02:56:15.000 [34mDebug[90m: [39mThis is a message without name
+"
 `;
 
 exports[`formatting examples formats example #12 correctly 1`] = `
-"[90m02:56:15.00 [acme] [34mDebug[90m: [39mThis is a message with newlines {
-                            \\"foo\\": \\"bar\\"
-                          }"
+"[90m02:56:15.000 [acme] [34mDebug[90m: [39mThis is a message with newlines {
+                             \\"foo\\": \\"bar\\"
+                           }
+"
+`;
+
+exports[`formatting examples formats example #13 correctly 1`] = `
+"[90m02:56:15.000 [acme] [31mError[90m: [39mUncaught exception
+    Error: This is an error
+        at Producer.flush (/app/node_modules/some-file.js:245:11)
+        at Producer.disconnect (/app/node_modules/some-file.js:288:8)
+        at process.<anonymous> (/app/src/foobar.ts:81:12)
+        at process.emit (events.js:323:22)
+        at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)
+"
 `;

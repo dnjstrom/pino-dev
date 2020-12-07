@@ -49,9 +49,39 @@ export const examples = [
     time,
   },
   {
+    level: 30,
+    time: 1607289378936,
+    pid: 13449,
+    name: "acme",
+    hostname: "daniel.strom.Mac.local",
+    req: {
+      id: 1,
+      method: "GET",
+      url: "/",
+      headers: {
+        host: "localhost:3000",
+        "user-agent": "curl/7.64.1",
+        accept: "*/*",
+      },
+      remoteAddress: "::1",
+      remotePort: 56596,
+    },
+    res: {
+      statusCode: 200,
+      headers: {
+        "x-powered-by": "Express",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "11",
+        etag: 'W/"b-Kq5sNclPz7QV2+lfQIuc6R7oRu0"',
+      },
+    },
+    responseTime: 3,
+    msg: "request completed",
+  },
+  {
     level: 10,
     name: "acme",
-    msg: "query  : /some-route",
+    msg: "A message with a namespace",
     time,
     ns: "express:router",
   },
@@ -59,17 +89,6 @@ export const examples = [
     level: 20,
     msg: "This is a message without name",
     time,
-  },
-  {
-    level: 50,
-
-    pid: 62822,
-    hostname: "my-computer.Mac.local",
-    name: "acme",
-    msg: "Uncaught exception",
-    time,
-    stack:
-      "Error: This is an error\n    at Producer.flush (/app/node_modules/some-file.js:245:11)\n    at Producer.disconnect (/app/node_modules/some-file.js:288:8)\n    at process.<anonymous> (/app/src/foobar.ts:81:12)\n    at process.emit (events.js:323:22)\n    at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)",
   },
   {
     level: 20,
@@ -83,4 +102,17 @@ export const examples = [
     )}`,
     time,
   },
+  {
+    level: 50,
+
+    pid: 62822,
+    hostname: "my-computer.Mac.local",
+    name: "acme",
+    msg: "Uncaught exception",
+    time,
+    stack:
+      "Error: This is an error\n    at Producer.flush (/app/node_modules/some-file.js:245:11)\n    at Producer.disconnect (/app/node_modules/some-file.js:288:8)\n    at process.<anonymous> (/app/src/foobar.ts:81:12)\n    at process.emit (events.js:323:22)\n    at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)",
+  },
+  ,
+  ,
 ];

@@ -6,14 +6,15 @@
   "license": "ISC",
   "main": "dist/index.js",
   "bin": {
-    "pino-dev": "dist/bin.js"
+    "pino-dev": "dist/cli.js"
   },
   "scripts": {
     "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
     "test": "jest",
     "build": "tsc -p tsconfig.json",
     "build:watch": "npm run build -- -w",
-    "lint": "eslint '*/**/*.ts' --fix"
+    "lint": "eslint '*/**/*.ts' --fix",
+    "build:release": "npm test && NODE_ENV=production npm build && npm publish"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",

@@ -33,18 +33,7 @@ const prettyTransport = new Transform({
   },
 });
 
-const join = new Transform({
-  objectMode: true,
-  transform(
-    chunk: any,
-    encoding: BufferEncoding,
-    callback: (error?: Error, data?: any) => void
-  ) {
-    callback(undefined, chunk.toString() + "\n");
-  },
-});
-
-pump(process.stdin, split(), prettyTransport, join, process.stdout);
+pump(process.stdin, split(), prettyTransport, process.stdout);
 
 // https://github.com/pinojs/pino/pull/358
 if (!process.stdin.isTTY && !fs.fstatSync(process.stdin.fd).isFile()) {
