@@ -14,7 +14,7 @@
     "build": "tsc -p tsconfig.json",
     "build:watch": "npm run build -- -w",
     "lint": "eslint '*/**/*.ts' --fix",
-    "build:release": "npm test && NODE_ENV=production npm build && npm publish"
+    "build:release": "npm test && NODE_ENV=production npm run build && npm publish"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
