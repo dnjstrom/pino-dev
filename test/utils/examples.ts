@@ -1,12 +1,18 @@
 const time = new Date("1969-07-21 02:56:15").getTime();
 
 export const examples = [
+  123,
+  "Some string",
+  [1, 2, 3],
+  {
+    level: 4456789,
+  },
+  {
+    msg: "A message without anything else",
+  },
   {
     msg: "A message without level.",
     time,
-  },
-  {
-    level: 4456789,
   },
   {
     msg: "A message without time",

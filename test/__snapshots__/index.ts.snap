@@ -1,74 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`formatting examples formats example #0 correctly 1`] = `
-"{\\"msg\\":\\"A message without level.\\",\\"time\\":-14162625000}
+"123
 "
 `;
 
 exports[`formatting examples formats example #1 correctly 1`] = `
-"{\\"level\\":4456789}
+"\\"Some string\\"
 "
 `;
 
 exports[`formatting examples formats example #2 correctly 1`] = `
-"{\\"msg\\":\\"A message without time\\",\\"level\\":10}
+"[1,2,3]
 "
 `;
 
 exports[`formatting examples formats example #3 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31m[1mFatal[22m[90m: [39mThis is a message
+"{\\"level\\":4456789}
 "
 `;
 
 exports[`formatting examples formats example #4 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31mError[90m: [39mThis is a message
+"A message without anything else
 "
 `;
 
 exports[`formatting examples formats example #5 correctly 1`] = `
-"[90m02:56:15.000 [acme] [33mWarn[90m: [39mThis is a message
+"[90m02:56:15.000:[39m A message without level.
 "
 `;
 
 exports[`formatting examples formats example #6 correctly 1`] = `
-"[90m02:56:15.000 [acme] [32mInfo[90m: [39mThis is a message
+"[90m[36mTrace[90m:[39m A message without time
 "
 `;
 
 exports[`formatting examples formats example #7 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m: [39mThis is a message
+"[90m02:56:15.000 [acme] [31m[1mFatal[22m[90m:[39m This is a message
 "
 `;
 
 exports[`formatting examples formats example #8 correctly 1`] = `
-"[90m02:56:15.000 [acme] [36mTrace[90m: [39mThis is a message
+"[90m02:56:15.000 [acme] [31mError[90m:[39m This is a message
 "
 `;
 
 exports[`formatting examples formats example #9 correctly 1`] = `
-"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mGET[39m / [32m200[39m  3 ms
+"[90m02:56:15.000 [acme] [33mWarn[90m:[39m This is a message
 "
 `;
 
 exports[`formatting examples formats example #10 correctly 1`] = `
-"[90m02:56:15.000 [acme > express:router] [36mTrace[90m: [39mA message with a namespace
+"[90m02:56:15.000 [acme] [32mInfo[90m:[39m This is a message
 "
 `;
 
 exports[`formatting examples formats example #11 correctly 1`] = `
-"[90m02:56:15.000 [34mDebug[90m: [39mThis is a message without name
+"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message
 "
 `;
 
 exports[`formatting examples formats example #12 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m: [39mThis is a message with newlines {
+"[90m02:56:15.000 [acme] [36mTrace[90m:[39m This is a message
+"
+`;
+
+exports[`formatting examples formats example #13 correctly 1`] = `
+"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mGET[39m / [32m200[39m 3ms
+"
+`;
+
+exports[`formatting examples formats example #14 correctly 1`] = `
+"[90m22:16:18.936 [acme] [31mError[90m:[39m [36mHEAD[39m /ping [31m500[39m 3ms
+"
+`;
+
+exports[`formatting examples formats example #15 correctly 1`] = `
+"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mPOST[39m /post/123 [34m301[39m 3ms
+"
+`;
+
+exports[`formatting examples formats example #16 correctly 1`] = `
+"[90m02:56:15.000 [acme > [35mexpress:router[90m] [36mTrace[90m:[39m A message with a namespace
+"
+`;
+
+exports[`formatting examples formats example #17 correctly 1`] = `
+"[90m02:56:15.000 [34mDebug[90m:[39m This is a message without name
+"
+`;
+
+exports[`formatting examples formats example #18 correctly 1`] = `
+"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message with newlines {
                              \\"foo\\": \\"bar\\"
                            }
 "
 `;
 
-exports[`formatting examples formats example #13 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31mError[90m: [39mUncaught exception
+exports[`formatting examples formats example #19 correctly 1`] = `
+"[90m02:56:15.000 [acme] [31mError[90m:[39m Uncaught exception
     Error: This is an error
         at Producer.flush (/app/node_modules/some-file.js:245:11)
         at Producer.disconnect (/app/node_modules/some-file.js:288:8)

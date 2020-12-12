@@ -11,6 +11,8 @@
   "scripts": {
     "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
     "test": "jest",
+    "test:watch": "jest -w",
+    "test:update-snapshots": "jest -u",
     "prebuild": "rimraf ./dist",
     "build": "tsc",
     "build:watch": "tsc -w",

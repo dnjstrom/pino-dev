@@ -8,9 +8,9 @@ type Response = {
 };
 
 export type Input = {
-  time: Date;
-  level: number;
   msg: string;
+  time?: Date;
+  level?: number;
   ns?: string;
   name?: string;
   stack?: string;

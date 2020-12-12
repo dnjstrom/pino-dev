@@ -32,17 +32,6 @@ const parseInput = (propertyMap: PropertyMap, input: string): Input => {
     throw new Error("Input is missing `msg`-property");
   }
 
-  // Todo: Are these actually required?
-  const level = parseInt(mapped.level, 10);
-  if (level == null || isNaN(level)) {
-    throw new Error("Input is missing `level`-property");
-  }
-
-  const time = new Date(parseInt(mapped.time, 10));
-  if (time == null || isNaN(time.getTime())) {
-    throw new Error("Input is missing `time`-property");
-  }
-
   return mapped;
 };
 
