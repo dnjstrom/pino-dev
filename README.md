@@ -35,9 +35,11 @@ yarn start | npx pino-dev
 Usage: pino dev [options] 
 
 Options:
-  -h, --help     Output usage information
-  -m, --map      Map arbitrary incoming properties to semantic pino-dev properties using json.
-  -v, --version  Output the version number
+  -c, --color     Force color
+  -h, --help      Output usage information
+  -m, --map       Map arbitrary incoming properties to semantic pino-dev properties using json.
+  -n, --no-color  Force no color
+  -v, --version   Output the version number
 ```
 
 #### -m, --map

@@ -3,6 +3,19 @@ import chalk from "chalk";
 import stripAnsi from "strip-ansi";
 import { format } from "date-fns";
 import { debug } from "./debug";
+import JoyCon from "joycon";
+
+const joycon = new JoyCon({
+  files: ["package.json", "pino-dev.config.json", "pino-dev.config.js"],
+  packageKey: "pino-dev",
+  parseJSON: (str) => bourne.parse(str, { protoAction: "remove" }),
+});
+
+const { path, data: configFileData } = joycon.loadSync();
+
+if (path) {
+  debug(`Using config from ${path}.`);
+}
 
 const levelToString = (level: number): string => {
   switch (level) {
@@ -129,7 +142,9 @@ const mapProperties = (propertyMap: PropertyMap, input: any): any =>
 
     const value = getDeep(from.split("."), input);
 
-    setDeep(agg, to.split("."), value);
+    if (value !== undefined) {
+      setDeep(agg, to.split("."), value);
+    }
 
     return agg;
   }, {});
@@ -175,7 +190,13 @@ const defaultPropertyMap: PropertyMap = {
 export const prettifierFactory = (options?: {
   propertyMap?: Record<string, string>;
 }) => {
-  const propertyMap = { ...defaultPropertyMap, ...options?.propertyMap };
+  const propertyMap = {
+    ...defaultPropertyMap,
+    ...configFileData,
+    ...options?.propertyMap,
+  };
+
+  debug(`Using merged config ${JSON.stringify(propertyMap, null, 2)}.`);
 
   return (line: string) => {
     let input: Input;
@@ -189,7 +210,7 @@ export const prettifierFactory = (options?: {
       return line + "\n";
     }
 
-    if (input.req && input.res && input.responseTime) {
+    if (input.req && input.res) {
       return formatHttpResponseMessage(input);
     }
 
@@ -232,7 +253,7 @@ const formatHttpResponseMessage = (input: Input) => {
     ? statusCodeToColor(input.res.statusCode)(String(input.res.statusCode))
     : undefined;
   const responseTimeText = input.responseTime
-    ? ` ${input.responseTime} ms`
+    ? `${input.responseTime}ms`
     : undefined;
 
   return (

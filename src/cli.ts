@@ -9,10 +9,13 @@ import args from "args";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
 
-args.option(
-  ["m", "map"],
-  "Map arbitrary incoming properties to semantic pino-dev properties using json."
-);
+args
+  .option(
+    ["m", "map"],
+    "Map arbitrary incoming properties to semantic pino-dev properties using json."
+  )
+  .option(["c", "color"], "Force color")
+  .option(["n", "no-color"], "Force no color");
 
 const opts = args.parse(process.argv);
 debug(`pino-dev started with options: ${JSON.stringify(opts, null, 2)}`);
