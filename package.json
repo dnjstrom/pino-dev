@@ -17,10 +17,7 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "lint": "eslint '*/**/*.ts' --fix",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "build:release": "npm test && NODE_ENV=production npm run build && npm publish"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
