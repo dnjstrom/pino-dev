@@ -69,8 +69,8 @@ Usage: pino dev [options]
 
 This configuration allows you to map arbitrary incoming properties to semantic pino-dev properties using json. For instance,
 
-```echo '{"message": "foobar"}' | pino-dev --map '{"msg": "message"}'```
+```echo '{"message": "foobar"}' | pino-dev --property-map '{"msg": "message"}'```
 
-would map the `message` property in the incoming json to the semantic property `msg` which enables `pino-dev` to understand how to format the log. For deep properties it's possible to use dot-notation, and mapping to a boolean `false` will disable the default mapping (e.g. `pino-dev --map '{"name": false}'` won't display the name in the prettified output).
+would map the `message` property in the incoming json to the semantic property `msg` which enables `pino-dev` to understand how to format the log. For deep properties it's possible to use dot-notation, and mapping to a boolean `false` will disable the default mapping (e.g. `pino-dev --property-map '{"name": false}'` won't display the name in the prettified output).
 
  
