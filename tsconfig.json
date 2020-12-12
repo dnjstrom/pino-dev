@@ -10,7 +10,10 @@
     ],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "incremental": true
   },
   "exclude": ["test/**/*"]
 }

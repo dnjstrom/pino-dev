@@ -1,4 +1,4 @@
-import { setDeep } from "../src";
+import { setDeep } from "../src/utils";
 
 describe.only("setDeep", () => {
   it("sets shallow objects properly", () => {

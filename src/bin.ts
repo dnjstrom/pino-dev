@@ -11,11 +11,19 @@ import { debug } from "./debug";
 
 args
   .option(
-    ["m", "map"],
+    ["m", "property-map"],
     "Map arbitrary incoming properties to semantic pino-dev properties using json."
   )
-  .option(["c", "color"], "Force color")
-  .option(["n", "no-color"], "Force no color");
+  .option("color", "Force color.")
+  .option("no-color", "Force no color.")
+  .option(
+    ["t", "time-format"],
+    "The time format to use (syntax according to https://www.npmjs.com/package/date-fns)."
+  )
+  .option(
+    ["n", "newline"],
+    `The newline character used in prettified output. Either "\n" (default) or "\r\n".`
+  );
 
 const opts = args.parse(process.argv);
 debug(`pino-dev started with options: ${JSON.stringify(opts, null, 2)}`);
