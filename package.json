@@ -15,7 +15,10 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "lint": "eslint '*/**/*.ts' --fix",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish"
+    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -36,6 +39,11 @@
     "testMatch": [
       "**/test/*.ts"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
   },
   "repository": {
     "type": "git",
@@ -66,6 +74,8 @@
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
+    "husky": "^5.0.6",
+    "pinst": "^2.1.1",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.4",
