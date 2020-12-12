@@ -22,7 +22,7 @@ args
   )
   .option(
     ["n", "newline"],
-    `The newline character used in prettified output. Either "\n" (default) or "\r\n".`
+    `The newline character used in prettified output. Either "\\n" (default) or "\\r\\n".`
   );
 
 const opts = args.parse(process.argv);
