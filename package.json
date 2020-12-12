@@ -1,6 +1,6 @@
 {
   "name": "pino-dev",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple prettifier for pino with built-in support for commonly used ecosystem packages.",
   "author": "Daniel Ström <D@nielstrom.se>",
   "license": "ISC",
@@ -44,6 +44,9 @@
       "pre-commit": "npm test"
     }
   },
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/dnjstrom/pino-dev"
