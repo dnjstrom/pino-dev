@@ -1,18 +1,37 @@
 # pino-dev
 
-A simple prettifier for `pino` with built-in support for commonly used ecosystem packages (currently `pino-http` and `pino-debug`).
+A simple prettifier for [pino](https://github.com/pinojs/pino) with built-in support for common ecosystem packages. Designed to be clear, unintrusive and to the point with sensible defaults optimized for use during development. 
 
 ![Screenshot](https://github.com/dnjstrom/pino-dev/blob/main/screenshot.png?raw=true)
 
+## Supported packages
+
+* [pino](https://github.com/pinojs/pino)
+* [pino-debug](https://github.com/pinojs/pino-debug)
+* [pino-http](https://github.com/pinojs/pino-http)
+
+Is your favorite pino package not yet supported? Request support [here](https://github.com/dnjstrom/pino-dev/issues/new).
+
+
+## Issues
+
+Discovered a problem with pino-dev? [Report an issue](https://github.com/dnjstrom/pino-dev/issues/new).
+
 ## Quickstart
 
-Install with one of the commands below
+Install using one of the commands below
 ```bash
 npm install --save-dev pino-dev
 yarn add --dev pino-dev
 ```
 
-Then pipe the output of your `pino`-enhanced app to the `pino-dev` cli in your package.json.
+then pipe the output of your `pino`-enhanced app to the `pino-dev` cli
+
+```bash
+./start-your-app | pino-dev
+```
+
+Often it's convenient to add this to your package.json scripts to not have to remember it.
 ```json
 {
   "scripts": {
@@ -29,7 +48,7 @@ yarn start | npx pino-dev
 
 ## Configuration
 
-Any configuration can be stored as a `pino-dev.config.json` or `pino-dev.config.js` file at the root of your repo. It's also possible to use a `"pino-dev": {...}` key in your `package.json`.
+Configuration is preferably stored as a `pino-dev.config.json` or `pino-dev.config.js` file at the root of your repo. It's also possible to use a `"pino-dev": {...}` key in your `package.json`.
 
 ### Default config
 ```json
@@ -51,19 +70,13 @@ Any configuration can be stored as a `pino-dev.config.json` or `pino-dev.config.
 }
 ```
 
-It's also possible to override the configuration file with the command-line arguments below:
+#### newline
 
-```
-Usage: pino dev [options] 
+The newline character used in prettified output. Usually dependent on your operating system, it's either "\n" (default) or "\r\n".
 
-      --color         Force color.
-  -h, --help          Output usage information
-  -n, --newline       The newline character used in prettified output. Either "\n" (default) or "\r\n".
-      --no-color      Force no color.
-  -m, --property-map  Map arbitrary incoming properties to semantic pino-dev properties using json.
-  -t, --time-format   The time format to use (syntax according to https://www.npmjs.com/package/date-fns).
-  -v, --version       Output the version number
-```
+#### time-format 
+
+The time format to use (syntax according to https://www.npmjs.com/package/date-fns).
 
 #### propertyMap
 
@@ -74,3 +87,19 @@ This configuration allows you to map arbitrary incoming properties to semantic p
 would map the `message` property in the incoming json to the semantic property `msg` which enables `pino-dev` to understand how to format the log. For deep properties it's possible to use dot-notation, and mapping to a boolean `false` will disable the default mapping (e.g. `pino-dev --property-map '{"name": false}'` won't display the name in the prettified output).
 
  
+### Command line arguments
+
+It's also possible to specify/override configuration with command-line arguments:
+
+```
+Usage: pino-dev [options] 
+
+      --color         Force color.
+  -h, --help          Output usage information
+  -n, --newline       The newline character used in prettified output. Either "\n" (default) or "\r\n".
+      --no-color      Force no color.
+  -m, --property-map  Map arbitrary incoming properties to semantic pino-dev properties using json.
+  -t, --time-format   The time format to use (syntax according to https://www.npmjs.com/package/date-fns).
+  -v, --version       Output the version number
+```
+
