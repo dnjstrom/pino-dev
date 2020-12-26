@@ -28,5 +28,7 @@ Trace: A message without time
     at process.<anonymous> (/app/src/foobar.ts:81:12)
     at process.emit (events.js:323:22)
     at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)\\"}
+{\\"level\\":20,\\"name\\":\\"acme\\",\\"msg\\":\\"	   This is a message with leading whitespace\\",\\"time\\":-14162625000}
+{\\"level\\":20,\\"name\\":\\"acme\\",\\"msg\\":\\"This is a message with ending whitespace	   \\",\\"time\\":-14162625000}
 "
 `;

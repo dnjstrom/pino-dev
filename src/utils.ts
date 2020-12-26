@@ -1,15 +1,16 @@
 const repeatString = (amount: number, str: string) =>
   new Array(amount + 1).join(" ");
 
+export const leftpad = (amount: number, str: string, padCharacter = " ") =>
+  repeatString(amount, padCharacter) + str;
+
 export const padLinesWithSpaces = (
   amount: number,
   str: string,
   newline: string
 ) => {
   const spaces = repeatString(amount, " ");
-  return (
-    spaces + str.replace(new RegExp(`${newline}`, "g"), `${newline}${spaces}`)
-  );
+  return str.replace(new RegExp(`${newline}`, "g"), `${newline}${spaces}`);
 };
 
 export const getDeep = (keys: string[], obj: any): any => {

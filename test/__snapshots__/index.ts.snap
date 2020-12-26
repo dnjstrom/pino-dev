@@ -107,3 +107,13 @@ exports[`formatting examples formats example #19 correctly 1`] = `
         at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)
 "
 `;
+
+exports[`formatting examples formats example #20 correctly 1`] = `
+"[90m02:56:15.000 [acme] [34mDebug[90m:[39m 	   This is a message with leading whitespace
+"
+`;
+
+exports[`formatting examples formats example #21 correctly 1`] = `
+"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message with ending whitespace	   
+"
+`;

@@ -179,6 +179,16 @@ export const examples = [
     stack:
       "Error: This is an error\n    at Producer.flush (/app/node_modules/some-file.js:245:11)\n    at Producer.disconnect (/app/node_modules/some-file.js:288:8)\n    at process.<anonymous> (/app/src/foobar.ts:81:12)\n    at process.emit (events.js:323:22)\n    at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)",
   },
-  ,
-  ,
+  {
+    level: 20,
+    name: "acme",
+    msg: "\t   This is a message with leading whitespace",
+    time,
+  },
+  {
+    level: 20,
+    name: "acme",
+    msg: "This is a message with ending whitespace\t   ",
+    time,
+  },
 ];
