@@ -4,7 +4,10 @@ import { formatHeader } from "./formatHeader";
 import { words } from "../utils";
 import { Config, Input } from "../types";
 
-export const formatHttpResponseMessage = (input: Input, config: Config) => {
+export const formatHttpResponseMessage = (
+  input: Input,
+  config: Config
+): string => {
   const headerText = formatHeader(input, config);
   const methodText = input.req?.method && chalk.cyan(input.req.method);
   const statusText =

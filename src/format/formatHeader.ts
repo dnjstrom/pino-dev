@@ -4,7 +4,7 @@ import { levelToColor, levelToString } from "../conversions";
 import { words } from "../utils";
 import { Config, Input } from "../types";
 
-export const formatHeader = (input: Input, config: Config) => {
+export const formatHeader = (input: Input, config: Config): string => {
   const timeText = input.time && format(input.time, config.timeFormat);
 
   const labels = [input.name, input.ns && chalk.magenta(input.ns)].filter(

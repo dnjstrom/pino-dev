@@ -1,7 +1,6 @@
 import JoyCon from "joycon";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
-import deepMerge from "deepmerge";
 import { Config } from "./types";
 
 const joycon = new JoyCon({

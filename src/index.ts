@@ -5,7 +5,10 @@ import { format } from "./format";
 import { config, mergeConfig } from "./config";
 import { Config, Input, PropertyMap } from "./types";
 
-const mapProperties = (propertyMap: PropertyMap, input: any): any =>
+const mapProperties = (
+  propertyMap: PropertyMap,
+  input: Record<string, unknown>
+): Record<string, unknown> =>
   Object.entries(propertyMap).reduce((agg, [to, from]) => {
     if (typeof from === "boolean" && !from) {
       return agg;
@@ -24,26 +27,36 @@ const mapProperties = (propertyMap: PropertyMap, input: any): any =>
     return agg;
   }, {});
 
-const parseInput = (propertyMap: PropertyMap, input: string): Input => {
-  const parsed = bourne.parse(input, { protoAction: "remove" });
-  const mapped = mapProperties(propertyMap, parsed);
+const validateInput = (
+  propertyMap: PropertyMap,
+  input: Record<string, unknown>
+): Input => {
+  const mapped = mapProperties(propertyMap, input);
 
   if (mapped.msg == null) {
     throw new Error("Input is missing `msg`-property");
   }
 
-  return mapped;
+  return mapped as Input;
 };
 
-export const prettifierFactory = (options?: Partial<Config>) => {
+export const prettifierFactory = (
+  options?: Partial<Config>
+): ((line: unknown) => string) => {
   const opts = options ? mergeConfig(config, options) : config;
 
   debug(`Using config ${JSON.stringify(opts, null, 2)}.`);
 
-  return (line: string) => {
+  return (line: unknown) => {
     let input: Input;
+
     try {
-      input = parseInput(opts.propertyMap, line);
+      const parsed =
+        typeof line === "string"
+          ? bourne.parse(line, { protoAction: "remove" })
+          : line;
+
+      input = validateInput(opts.propertyMap, parsed);
     } catch (err) {
       debug(`Error parsing input \`${line}\`.`);
       debug(err);
