@@ -170,7 +170,6 @@ export const examples = [
   },
   {
     level: 50,
-
     pid: 62822,
     hostname: "my-computer.Mac.local",
     name: "acme",

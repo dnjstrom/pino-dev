@@ -8,14 +8,14 @@ import { prettifierFactory } from "./index";
 import args from "args";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
+import { Config } from "./types";
+import { PartialDeep } from "type-fest";
 
 args
   .option(
     ["m", "property-map"],
     "Map arbitrary incoming properties to semantic pino-dev properties using json."
   )
-  .option("color", "Force color.")
-  .option("no-color", "Force no color.")
   .option(
     ["t", "time-format"],
     "The time format to use (syntax according to https://www.npmjs.com/package/date-fns)."
@@ -23,16 +23,34 @@ args
   .option(
     ["n", "newline"],
     `The newline character used in prettified output. Either "\\n" (default) or "\\r\\n".`
-  );
+  )
+  .option(["-", "color"], "Force color.")
+  .option(["-", "no-color"], "Force no color.");
 
-const opts = args.parse(process.argv);
-debug(`pino-dev started with options: ${JSON.stringify(opts, null, 2)}`);
+const options = args.parse(process.argv);
+const parsedPropertyMap = (() => {
+  if (!options.propertyMap) {
+    return;
+  }
 
-const propertyMap = opts.map
-  ? bourne.parse(opts.map, { protoAction: "remove" })
-  : undefined;
+  const propertyMap = bourne.parse(options.propertyMap, {
+    protoAction: "remove",
+  });
 
-const prettify = prettifierFactory({ propertyMap });
+  return { propertyMap, m: propertyMap };
+})();
+
+const parsedOptions: PartialDeep<Config> = {
+  ...options,
+  ...parsedPropertyMap,
+};
+
+debug(
+  `pino-dev started with options: ${JSON.stringify(parsedOptions, null, 2)}`
+);
+
+const prettify = prettifierFactory(parsedOptions);
+
 const prettyTransport = new Transform({
   objectMode: true,
   transform(chunk, enc, cb) {
