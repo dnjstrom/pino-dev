@@ -4,6 +4,7 @@ import { getDeep, setDeep } from "./utils";
 import { format } from "./format";
 import { config, mergeConfig } from "./config";
 import { Config, Input, PropertyMap } from "./types";
+import { PartialDeep } from "type-fest";
 
 const mapProperties = (
   propertyMap: PropertyMap,
@@ -41,9 +42,9 @@ const validateInput = (
 };
 
 export const prettifierFactory = (
-  options?: Partial<Config>
+  options: PartialDeep<Config> = {}
 ): ((line: unknown) => string) => {
-  const opts = options ? mergeConfig(config, options) : config;
+  const opts = mergeConfig(config, options);
 
   debug(`Using config ${JSON.stringify(opts, null, 2)}.`);
 

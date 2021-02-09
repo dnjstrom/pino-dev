@@ -2,6 +2,7 @@ import JoyCon from "joycon";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
 import { Config } from "./types";
+import { PartialDeep } from "type-fest";
 
 const joycon = new JoyCon({
   files: ["package.json", "pino-dev.config.json", "pino-dev.config.js"],
@@ -9,13 +10,14 @@ const joycon = new JoyCon({
   parseJSON: (str) => bourne.parse(str, { protoAction: "remove" }),
 });
 
-const { path, data: configFileData } = joycon.loadSync();
+const { path, data } = joycon.loadSync();
+const configFileData: PartialDeep<Config> = data ?? {};
 
 if (path) {
   debug(`Using config from ${path}.`);
 }
 
-const defaultConfig: Config = {
+export const DEFAULT_CONFIG: Config = {
   newline: "\n",
   timeFormat: "HH:mm:ss.SSS",
   propertyMap: {
@@ -34,7 +36,7 @@ const defaultConfig: Config = {
 
 export const mergeConfig = (
   base: Config,
-  ...additionalConfigs: Array<Partial<Config>>
+  ...additionalConfigs: Array<PartialDeep<Config>>
 ): Config =>
   additionalConfigs.reduce<Config>((agg, config) => {
     return {
@@ -47,6 +49,4 @@ export const mergeConfig = (
     };
   }, base);
 
-export const config = configFileData
-  ? mergeConfig(defaultConfig, configFileData)
-  : defaultConfig;
+export const config = mergeConfig(DEFAULT_CONFIG, configFileData);
