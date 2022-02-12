@@ -1,193 +1,72 @@
+import { Writable } from "readable-stream";
+
+import pino from "pino";
+
+// A set of example pino logs generated with the pino library to ensure compatibility across version changes.
+const exampleMessages: unknown[] = [];
+
 const time = new Date("1969-07-21 02:56:15").getTime();
 
-export const examples = [
-  123,
-  "Some string",
-  [1, 2, 3],
-  {
-    level: 4456789,
+// A writeable stream that parses each log message and stores it in exampleMessages.
+const exampleMessagesDestination = new Writable({
+  write(chunk, _enc, done) {
+    const log = JSON.parse(chunk.toString());
+
+    // Make pid static to avoid breaking snapshots.
+    if (log.pid !== undefined) {
+      log.pid = 12345;
+    }
+
+    // Make time static to avoid breaking snapshots.
+    if (log.time !== undefined) {
+      log.time = time;
+    }
+
+    // Make hostname static to avoid breaking snapshots.
+    if (log.hostname !== undefined) {
+      log.hostname = "my-computer";
+    }
+
+    exampleMessages.push(log);
+    done();
   },
+});
+
+const logger = pino(exampleMessagesDestination);
+
+logger.trace("An info message");
+logger.debug("A debug message");
+logger.info("An info message");
+logger.warn("A warning message");
+logger.error("An error message");
+logger.fatal("A fatal message");
+logger.info("\t    A message with leading whitespace");
+logger.info("A message with ending whitespace    \t");
+logger.info(`A multi-line message. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+Vivamus vehicula ante nisi, id porta odio blandit ut.`);
+logger.info({ foo: "bar", baz: 42 }, "A message with an object parameter");
+logger.error(new Error("Oh noes!"), "An error happened somehow");
+
+logger
+  .child({ context: { server: "skynet" } })
+  .info("Meta data via child logger");
+
+pino(
   {
-    msg: "A message without anything else",
+    name: "My Logger",
   },
+  exampleMessagesDestination
+).info("A logger with a name set");
+
+pino(
   {
-    msg: "A message without level.",
-    time,
+    base: undefined,
   },
-  {
-    msg: "A message without time",
-    level: 10,
-  },
-  {
-    level: 60,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 50,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 40,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 30,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 20,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 10,
-    name: "acme",
-    msg: "This is a message",
-    time,
-  },
-  {
-    level: 30,
-    time: 1607289378936,
-    pid: 13449,
-    name: "acme",
-    hostname: "daniel.strom.Mac.local",
-    req: {
-      id: 1,
-      method: "GET",
-      url: "/",
-      headers: {
-        host: "localhost:3000",
-        "user-agent": "curl/7.64.1",
-        accept: "*/*",
-      },
-      remoteAddress: "::1",
-      remotePort: 56596,
-    },
-    res: {
-      statusCode: 200,
-      headers: {
-        "x-powered-by": "Express",
-        "content-type": "text/html; charset=utf-8",
-        "content-length": "11",
-        etag: 'W/"b-Kq5sNclPz7QV2+lfQIuc6R7oRu0"',
-      },
-    },
-    responseTime: 3,
-    msg: "request completed",
-  },
-  {
-    level: 50,
-    time: 1607289378936,
-    pid: 13449,
-    name: "acme",
-    hostname: "daniel.strom.Mac.local",
-    req: {
-      id: 1,
-      method: "HEAD",
-      url: "/ping",
-      headers: {
-        host: "localhost:3000",
-        "user-agent": "curl/7.64.1",
-        accept: "*/*",
-      },
-      remoteAddress: "::1",
-      remotePort: 56596,
-    },
-    res: {
-      statusCode: 500,
-      headers: {
-        "x-powered-by": "Express",
-        "content-type": "text/html; charset=utf-8",
-        "content-length": "11",
-        etag: 'W/"b-Kq5sNclPz7QV2+lfQIuc6R7oRu0"',
-      },
-    },
-    responseTime: 3,
-    msg: "request errored",
-  },
-  {
-    level: 30,
-    time: 1607289378936,
-    pid: 13449,
-    name: "acme",
-    hostname: "daniel.strom.Mac.local",
-    req: {
-      id: 1,
-      method: "POST",
-      url: "/post/123",
-      headers: {
-        host: "localhost:3000",
-        "user-agent": "curl/7.64.1",
-        accept: "*/*",
-      },
-      remoteAddress: "::1",
-      remotePort: 56596,
-    },
-    res: {
-      statusCode: 301,
-      headers: {
-        "x-powered-by": "Express",
-        "content-type": "text/html; charset=utf-8",
-        "content-length": "11",
-        etag: 'W/"b-Kq5sNclPz7QV2+lfQIuc6R7oRu0"',
-      },
-    },
-    responseTime: 3,
-    msg: "request errored",
-  },
-  {
-    level: 10,
-    name: "acme",
-    msg: "A message with a namespace",
-    time,
-    ns: "express:router",
-  },
-  {
-    level: 20,
-    msg: "This is a message without name",
-    time,
-  },
-  {
-    level: 20,
-    name: "acme",
-    msg: `This is a message with newlines ${JSON.stringify(
-      {
-        foo: "bar",
-      },
-      null,
-      2
-    )}`,
-    time,
-  },
-  {
-    level: 50,
-    pid: 62822,
-    hostname: "my-computer.Mac.local",
-    name: "acme",
-    msg: "Uncaught exception",
-    time,
-    stack:
-      "Error: This is an error\n    at Producer.flush (/app/node_modules/some-file.js:245:11)\n    at Producer.disconnect (/app/node_modules/some-file.js:288:8)\n    at process.<anonymous> (/app/src/foobar.ts:81:12)\n    at process.emit (events.js:323:22)\n    at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)",
-  },
-  {
-    level: 20,
-    name: "acme",
-    msg: "\t   This is a message with leading whitespace",
-    time,
-  },
-  {
-    level: 20,
-    name: "acme",
-    msg: "This is a message with ending whitespace\t   ",
-    time,
-  },
-];
+  exampleMessagesDestination
+).info("A logger without the base child logger");
+
+export const examples = exampleMessages;
