@@ -2,18 +2,16 @@ import { LogLike } from "./LogLike";
 
 const TIME = new Date("1969-07-21 02:56:15").getTime();
 
+// Overrides some dynamic properties with static ones to ensure stable snapshot tests.
 export const overrideDynamicLogProperties = <T extends LogLike>(log: T): T => {
-  // Make pid static to avoid breaking snapshots.
   if (log.pid !== undefined) {
     log.pid = 12345;
   }
 
-  // Make time static to avoid breaking snapshots.
   if (log.time !== undefined) {
     log.time = TIME;
   }
 
-  // Make hostname static to avoid breaking snapshots.
   if (log.hostname !== undefined) {
     log.hostname = "my-computer";
   }
