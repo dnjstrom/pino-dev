@@ -1,119 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`formatting examples formats example #0 correctly 1`] = `
-"123
+"\\"miscellaneous text\\"
 "
 `;
 
 exports[`formatting examples formats example #1 correctly 1`] = `
-"\\"Some string\\"
+"02:56:15.000 Trace: An info message
 "
 `;
 
 exports[`formatting examples formats example #2 correctly 1`] = `
-"[1,2,3]
+"02:56:15.000 Debug: A debug message
 "
 `;
 
 exports[`formatting examples formats example #3 correctly 1`] = `
-"{\\"level\\":4456789}
+"02:56:15.000 Info: An info message
 "
 `;
 
 exports[`formatting examples formats example #4 correctly 1`] = `
-"A message without anything else
+"02:56:15.000 Warn: A warning message
 "
 `;
 
 exports[`formatting examples formats example #5 correctly 1`] = `
-"[90m02:56:15.000:[39m A message without level.
+"02:56:15.000 Error: An error message
 "
 `;
 
 exports[`formatting examples formats example #6 correctly 1`] = `
-"[90m[36mTrace[90m:[39m A message without time
+"02:56:15.000 Fatal: A fatal message
 "
 `;
 
 exports[`formatting examples formats example #7 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31m[1mFatal[22m[90m:[39m This is a message
+"02:56:15.000 Info: 	    A message with leading whitespace
 "
 `;
 
 exports[`formatting examples formats example #8 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31mError[90m:[39m This is a message
+"02:56:15.000 Info: A message with ending whitespace    	
 "
 `;
 
 exports[`formatting examples formats example #9 correctly 1`] = `
-"[90m02:56:15.000 [acme] [33mWarn[90m:[39m This is a message
+"02:56:15.000 Info: A multi-line message. Lorem ipsum
+                     dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+                     finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+                     porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                     Vivamus vehicula ante nisi, id porta odio blandit ut.
 "
 `;
 
 exports[`formatting examples formats example #10 correctly 1`] = `
-"[90m02:56:15.000 [acme] [32mInfo[90m:[39m This is a message
+"02:56:15.000 Info: A message with an object parameter
 "
 `;
 
 exports[`formatting examples formats example #11 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message
+"02:56:15.000 Error: An error happened somehow
+    Error: Oh noes!
+        at /some/path/to/file:23:98
+        at step (/some/path/to/file:23:98)
+        at Object.next (/some/path/to/file:23:98)
+        at /some/path/to/file:23:98
+        at new Promise (<anonymous>)
+        at __awaiter (/some/path/to/file:23:98)
+        at generateExamples (/some/path/to/file:23:98)
+        at Object.<anonymous> (/some/path/to/file:23:98)
+        at Module._compile (internal/some/path/to/file:23:98)
+        at Module.m._compile (/some/path/to/file:23:98)
 "
 `;
 
 exports[`formatting examples formats example #12 correctly 1`] = `
-"[90m02:56:15.000 [acme] [36mTrace[90m:[39m This is a message
+"02:56:15.000 Info: Meta data via child logger
 "
 `;
 
 exports[`formatting examples formats example #13 correctly 1`] = `
-"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mGET[39m / [32m200[39m 3ms
+"02:56:15.000 [My Logger] Info: A logger with a name set
 "
 `;
 
 exports[`formatting examples formats example #14 correctly 1`] = `
-"[90m22:16:18.936 [acme] [31mError[90m:[39m [36mHEAD[39m /ping [31m500[39m 3ms
+"02:56:15.000 Info: A logger without the base child logger
 "
 `;
 
 exports[`formatting examples formats example #15 correctly 1`] = `
-"[90m22:16:18.936 [acme] [32mInfo[90m:[39m [36mPOST[39m /post/123 [34m301[39m 3ms
+"02:56:15.000 Info: something else
 "
 `;
 
 exports[`formatting examples formats example #16 correctly 1`] = `
-"[90m02:56:15.000 [acme > [35mexpress:router[90m] [36mTrace[90m:[39m A message with a namespace
+"02:56:15.000 Info: GET /greet/world 200 123ms
 "
 `;
 
 exports[`formatting examples formats example #17 correctly 1`] = `
-"[90m02:56:15.000 [34mDebug[90m:[39m This is a message without name
+"02:56:15.000 [my-test:namespace] Trace: A debug message
 "
 `;
 
 exports[`formatting examples formats example #18 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message with newlines {
-                             \\"foo\\": \\"bar\\"
-                           }
-"
-`;
-
-exports[`formatting examples formats example #19 correctly 1`] = `
-"[90m02:56:15.000 [acme] [31mError[90m:[39m Uncaught exception
-    Error: This is an error
-        at Producer.flush (/app/node_modules/some-file.js:245:11)
-        at Producer.disconnect (/app/node_modules/some-file.js:288:8)
-        at process.<anonymous> (/app/src/foobar.ts:81:12)
-        at process.emit (events.js:323:22)
-        at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)
-"
-`;
-
-exports[`formatting examples formats example #20 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m:[39m 	   This is a message with leading whitespace
-"
-`;
-
-exports[`formatting examples formats example #21 correctly 1`] = `
-"[90m02:56:15.000 [acme] [34mDebug[90m:[39m This is a message with ending whitespace	   
+"\\"\\"
 "
 `;

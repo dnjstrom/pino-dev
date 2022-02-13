@@ -1,4 +1,4 @@
-import chalk, { Chalk, ColorSupport } from "chalk";
+import chalk, { Chalk } from "chalk";
 
 export const levelToString = (level: number): string => {
   switch (level) {
@@ -18,9 +18,7 @@ export const levelToString = (level: number): string => {
       return "Unknown";
   }
 };
-export const levelToColor = (
-  level: number
-): Chalk & { supportsColor: ColorSupport } => {
+export const levelToColor = (level: number): Chalk => {
   switch (level) {
     case 60:
       return chalk.red.bold;
@@ -38,9 +36,7 @@ export const levelToColor = (
       return chalk.reset;
   }
 };
-export const statusCodeToColor = (
-  statusCode: number
-): Chalk & { supportsColor: ColorSupport } => {
+export const statusCodeToColor = (statusCode: number): Chalk => {
   if (statusCode >= 500 && statusCode <= 599) {
     return chalk.red;
   } else if (statusCode >= 400 && statusCode <= 499) {

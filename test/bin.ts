@@ -3,19 +3,21 @@ import { examples } from "./utils/examples";
 import { joinWith } from "../src/utils";
 import * as path from "path";
 
-const input = joinWith(
-  "\n",
-  examples.map((json) => JSON.stringify(json))
-);
-
 const binPath = path.resolve(__dirname, "../src/bin.ts");
 
 const runCli = (input: string, flags = "") =>
-  execSync(
-    `echo '${input}' | env FORCE_COLOR=0 ts-node ${binPath} ${flags}`
-  ).toString();
+  execSync(`echo '${input}' | ts-node ${binPath} ${flags}`).toString();
 
 describe("cli", () => {
+  let input = "";
+
+  beforeAll(async () => {
+    input = joinWith(
+      "\n",
+      examples.map((json) => JSON.stringify(json))
+    );
+  });
+
   it("handles all examples correctly", () => {
     expect(runCli(input)).toMatchSnapshot();
   });

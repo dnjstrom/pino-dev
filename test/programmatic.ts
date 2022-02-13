@@ -2,28 +2,30 @@ process.env.FORCE_COLOR = "0";
 
 import pino from "pino";
 import { prettifierFactory as pinoDev } from "../src/index";
-import { WriteMemory } from "./utils/WriteMemory";
+import { ListDestination } from "./utils/ListDestination";
 import MockDate from "mockdate";
 
 MockDate.set("2020");
 
-const stream = new WriteMemory();
-
-const logger = pino(
-  { level: "trace", prettyPrint: { colorize: false }, prettifier: pinoDev },
-  stream
-);
-
 describe("Programmatic usage", () => {
+  let destination: ListDestination;
+  let logger: pino.Logger;
+
   beforeEach(() => {
-    stream.reset();
+    destination = new ListDestination();
+    logger = pino(
+      { level: "trace", prettyPrint: { colorize: false }, prettifier: pinoDev },
+      destination
+    );
   });
 
   it("Formats correctly", () => {
     logger.info("Testing 123...");
-    expect(stream.buffer).toMatchInlineSnapshot(`
-      "01:00:00.000 Info: Testing 123...
-      "
+    expect(destination.getOutput()).toMatchInlineSnapshot(`
+      Array [
+        "01:00:00.000 Info: Testing 123...
+      ",
+      ]
     `);
   });
 });
