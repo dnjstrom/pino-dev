@@ -51,7 +51,7 @@ debug(
 
 const prettify = prettifierFactory(parsedOptions);
 
-const prettyTransport = new Transform({
+const prettificationTransform = new Transform({
   objectMode: true,
   transform(chunk, enc, cb) {
     const line = prettify(chunk.toString());
@@ -62,7 +62,12 @@ const prettyTransport = new Transform({
   },
 });
 
-pump(process.stdin, split(), prettyTransport, process.stdout);
+pump(
+  process.stdin,
+  split(), // Split chunks on newlines
+  prettificationTransform, // prettify each chunk
+  process.stdout
+);
 
 // https://github.com/pinojs/pino/pull/358
 if (!process.stdin.isTTY && !fs.fstatSync(process.stdin.fd).isFile()) {
