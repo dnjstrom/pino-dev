@@ -14,6 +14,7 @@ describe("mergeConfig", () => {
         "newline": "
       ",
         "propertyMap": Object {
+          "err.stack": "err.stack",
           "level": "severity",
           "msg": "msg",
           "name": "name",
@@ -22,7 +23,6 @@ describe("mergeConfig", () => {
           "req.url": "req.url",
           "res.statusCode": "res.statusCode",
           "responseTime": "responseTime",
-          "stack": "stack",
           "time": "time",
         },
         "timeFormat": "HH:mm:ss",

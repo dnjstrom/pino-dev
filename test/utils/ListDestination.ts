@@ -1,5 +1,5 @@
 import { Writable } from "stream";
-import { LogLike } from "./LogLike";
+import { Input } from "../../src/types";
 import { overrideDynamicLogProperties } from "./overrideDynamicLogProperties";
 
 export class ListDestination extends Writable {
@@ -15,7 +15,7 @@ export class ListDestination extends Writable {
     _encoding: BufferEncoding,
     done: (error?: Error | null) => void
   ): void {
-    let log: LogLike;
+    let log: Input;
 
     try {
       log = overrideDynamicLogProperties(JSON.parse(chunk.toString()));

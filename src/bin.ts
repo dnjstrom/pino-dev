@@ -52,12 +52,13 @@ debug(
 const prettify = prettifierFactory(parsedOptions);
 
 const prettificationTransform = new Transform({
-  objectMode: true,
-  transform(chunk, enc, cb) {
+  transform(chunk: Buffer, _enc, cb) {
     const line = prettify(chunk.toString());
+
     if (line === undefined) {
       return cb();
     }
+
     cb(undefined, line);
   },
 });

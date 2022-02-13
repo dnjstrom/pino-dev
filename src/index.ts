@@ -9,30 +9,25 @@ import { PartialDeep } from "type-fest";
 const mapProperties = (
   propertyMap: PropertyMap,
   input: Record<string, unknown>
-): Record<string, unknown> =>
-  Object.entries(propertyMap).reduce((agg, [to, from]) => {
-    if (typeof from === "boolean" && !from) {
-      return agg;
-    } else if (typeof from !== "string") {
-      throw new Error(
-        `Invalid property mapping for "${to}": ${JSON.stringify(from)}.`
-      );
-    }
-
-    const value = getDeep(from.split("."), input);
-
-    if (value !== undefined) {
-      setDeep(agg, to.split("."), value);
-    }
-
-    return agg;
-  }, {});
-
-const validateInput = (
-  propertyMap: PropertyMap,
-  input: Record<string, unknown>
 ): Input => {
-  const mapped = mapProperties(propertyMap, input);
+  const mapped: Partial<Input> = Object.entries(propertyMap).reduce(
+    (agg, [to, from]) => {
+      if (from === false) {
+        return agg; // Ignore the property if set to false
+      } else if (typeof from !== "string") {
+        throw new Error(`Invalid property mapping for "${to}": "${from}".`);
+      }
+
+      const value = getDeep(from.split("."), input);
+
+      if (value !== undefined) {
+        setDeep(agg, to.split("."), value);
+      }
+
+      return agg;
+    },
+    {}
+  );
 
   if (mapped.msg == null) {
     throw new Error("Input is missing `msg`-property");
@@ -43,12 +38,13 @@ const validateInput = (
 
 export const prettifierFactory = (
   options: PartialDeep<Config> = {}
-): ((line: unknown) => string) => {
+): ((line: string | unknown) => string) => {
   const opts = mergeConfig(config, options);
 
   debug(`Using config ${JSON.stringify(opts, null, 2)}.`);
 
-  return (line: unknown) => {
+  // `line` is a string most of the time, but can be an object when used programmatically.
+  return (line: string | unknown) => {
     let input: Input;
 
     try {
@@ -56,8 +52,7 @@ export const prettifierFactory = (
         typeof line === "string"
           ? bourne.parse(line, { protoAction: "remove" })
           : line;
-
-      input = validateInput(opts.propertyMap, parsed);
+      input = mapProperties(opts.propertyMap, parsed);
     } catch (err) {
       debug(`Error parsing input \`${line}\`.`);
       debug(err);
