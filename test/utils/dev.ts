@@ -1,10 +1,9 @@
-import { generateExamples } from "./examples";
+import { examples } from "./examples";
 import { prettifierFactory } from "../../src";
 
 const prettifier = prettifierFactory();
 
 const run = async () => {
-  const examples = await generateExamples();
   examples.map((input) => {
     const output = prettifier(JSON.stringify(input));
     process.stdout.write(output);

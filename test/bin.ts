@@ -1,20 +1,17 @@
 import { execSync } from "child_process";
-import { generateExamples } from "./utils/examples";
+import { examples } from "./utils/examples";
 import { joinWith } from "../src/utils";
 import * as path from "path";
 
 const binPath = path.resolve(__dirname, "../src/bin.ts");
 
 const runCli = (input: string, flags = "") =>
-  execSync(
-    `echo '${input}' | env FORCE_COLOR=0 ts-node ${binPath} ${flags}`
-  ).toString();
+  execSync(`echo '${input}' | ts-node ${binPath} ${flags}`).toString();
 
 describe("cli", () => {
   let input = "";
 
   beforeAll(async () => {
-    const examples = await generateExamples();
     input = joinWith(
       "\n",
       examples.map((json) => JSON.stringify(json))

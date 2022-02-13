@@ -1,20 +1,17 @@
+process.env.FORCE_COLOR = "0";
+
 import { prettifierFactory } from "../src";
-import { generateExamples } from "./utils/examples";
+import { examples } from "./utils/examples";
 
 describe("formatting examples", () => {
   let prettifier: ReturnType<typeof prettifierFactory>;
-  let examples: unknown[] = [];
-
-  beforeAll(async () => {
-    examples = await generateExamples();
-  });
 
   beforeEach(() => {
     prettifier = prettifierFactory();
   });
 
-  it(`formats all examples correctly`, () => {
-    examples.forEach((input) => {
+  examples.forEach((input, index) => {
+    it(`formats example #${index} correctly`, () => {
       expect(prettifier(JSON.stringify(input))).toMatchSnapshot();
     });
   });
