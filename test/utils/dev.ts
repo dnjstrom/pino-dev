@@ -4,7 +4,9 @@ import { prettifierFactory } from "../../src";
 const prettifier = prettifierFactory();
 
 examples.map((input) => {
-  const output = prettifier(JSON.stringify(input));
+  const output = prettifier(
+    typeof input === "string" ? input : JSON.stringify(input)
+  );
   process.stdout.write(output);
 });
 

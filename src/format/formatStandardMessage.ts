@@ -7,8 +7,8 @@ export const formatStandardMessage = (input: Input, config: Config): string => {
   const headerText = formatHeader(input, config);
   const headerLength = stripAnsi(headerText).length;
   const stackText =
-    input.stack &&
-    leftPad(4, padLinesWithSpaces(4, input.stack, config.newline));
+    input.err?.stack &&
+    leftPad(4, padLinesWithSpaces(4, input.err.stack, config.newline));
   const messageText = padLinesWithSpaces(
     headerLength + 1,
     input.msg,
