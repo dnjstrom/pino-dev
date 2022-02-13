@@ -1,12 +1,7 @@
 import { execSync } from "child_process";
-import { examples } from "./utils/examples";
+import { generateExamples } from "./utils/examples";
 import { joinWith } from "../src/utils";
 import * as path from "path";
-
-const input = joinWith(
-  "\n",
-  examples.map((json) => JSON.stringify(json))
-);
 
 const binPath = path.resolve(__dirname, "../src/bin.ts");
 
@@ -16,6 +11,16 @@ const runCli = (input: string, flags = "") =>
   ).toString();
 
 describe("cli", () => {
+  let input = "";
+
+  beforeAll(async () => {
+    const examples = await generateExamples();
+    input = joinWith(
+      "\n",
+      examples.map((json) => JSON.stringify(json))
+    );
+  });
+
   it("handles all examples correctly", () => {
     expect(runCli(input)).toMatchSnapshot();
   });

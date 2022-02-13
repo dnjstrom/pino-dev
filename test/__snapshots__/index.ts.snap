@@ -1,77 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formatting examples formats example #0 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 1`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m An info message
 "
 `;
 
-exports[`formatting examples formats example #1 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 2`] = `
 "[90m02:56:15.000 [33mWarn[90m:[39m A warning message
 "
 `;
 
-exports[`formatting examples formats example #2 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 3`] = `
 "[90m02:56:15.000 [31mError[90m:[39m An error message
 "
 `;
 
-exports[`formatting examples formats example #3 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 4`] = `
 "[90m02:56:15.000 [31m[1mFatal[22m[90m:[39m A fatal message
 "
 `;
 
-exports[`formatting examples formats example #4 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 5`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m 	    A message with leading whitespace
 "
 `;
 
-exports[`formatting examples formats example #5 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 6`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m A message with ending whitespace    	
 "
 `;
 
-exports[`formatting examples formats example #6 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 7`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m A multi-line message. Lorem ipsum
-                   dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
-                   finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
-                   porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
-                   Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                   Vivamus vehicula ante nisi, id porta odio blandit ut.
+                     dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+                     finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+                     porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                     Vivamus vehicula ante nisi, id porta odio blandit ut.
 "
 `;
 
-exports[`formatting examples formats example #7 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 8`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m A message with an object parameter
 "
 `;
 
-exports[`formatting examples formats example #8 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 9`] = `
 "[90m02:56:15.000 [31mError[90m:[39m An error happened somehow
     Error: Oh noes!
-        at Object.<anonymous> (/Users/daniel.strom/Code/pino-dev/test/utils/examples.ts:52:14)
-        at Runtime._execModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:1299:24)
-        at Runtime._loadModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:898:12)
-        at Runtime.requireModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:746:10)
-        at Runtime.requireModuleOrMock (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:919:21)
-        at Object.<anonymous> (/Users/daniel.strom/Code/pino-dev/test/index.ts:2:1)
-        at Runtime._execModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:1299:24)
-        at Runtime._loadModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:898:12)
-        at Runtime.requireModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:746:10)
-        at jasmine2 (/Users/daniel.strom/Code/pino-dev/node_modules/jest-jasmine2/build/index.js:230:13)
+        at /some/path/to/file:23:98
+        at step (/some/path/to/file:23:98)
+        at Object.next (/some/path/to/file:23:98)
+        at /some/path/to/file:23:98
+        at new Promise (<anonymous>)
+        at Object.<anonymous>.__awaiter (/some/path/to/file:23:98)
+        at Object.generateExamples (/some/path/to/file:23:98)
+        at /some/path/to/file:23:98
+        at step (/some/path/to/file:23:98)
+        at Object.next (/some/path/to/file:23:98)
 "
 `;
 
-exports[`formatting examples formats example #9 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 10`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m Meta data via child logger
 "
 `;
 
-exports[`formatting examples formats example #10 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 11`] = `
 "[90m02:56:15.000 [My Logger] [32mInfo[90m:[39m A logger with a name set
 "
 `;
 
-exports[`formatting examples formats example #11 correctly 1`] = `
+exports[`formatting examples formats all examples correctly 12`] = `
 "[90m02:56:15.000 [32mInfo[90m:[39m A logger without the base child logger
+"
+`;
+
+exports[`formatting examples formats all examples correctly 13`] = `
+"[90m02:56:15.000 [32mInfo[90m:[39m something else
+"
+`;
+
+exports[`formatting examples formats all examples correctly 14`] = `
+"[90m02:56:15.000 [32mInfo[90m:[39m [36mGET[39m /greet/world [32m200[39m 123ms
 "
 `;

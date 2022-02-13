@@ -8,25 +8,27 @@ exports[`cli handles all examples correctly 1`] = `
 {\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"	    A message with leading whitespace\\"}
 {\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"A message with ending whitespace    	\\"}
 {\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"A multi-line message. Lorem ipsum
-dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
-finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
-porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-Vivamus vehicula ante nisi, id porta odio blandit ut.\\"}
+  dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+  finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+  porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+  Vivamus vehicula ante nisi, id porta odio blandit ut.\\"}
 02:56:15.000 Info: A message with an object parameter
 {\\"level\\":50,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"stack\\":\\"Error: Oh noes!
-    at Object.<anonymous> (/Users/daniel.strom/Code/pino-dev/test/utils/examples.ts:52:14)
-    at Runtime._execModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:1299:24)
-    at Runtime._loadModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:898:12)
-    at Runtime.requireModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:746:10)
-    at Runtime.requireModuleOrMock (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:919:21)
-    at Object.<anonymous> (/Users/daniel.strom/Code/pino-dev/test/bin.ts:2:1)
-    at Runtime._execModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:1299:24)
-    at Runtime._loadModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:898:12)
-    at Runtime.requireModule (/Users/daniel.strom/Code/pino-dev/node_modules/jest-runtime/build/index.js:746:10)
-    at jasmine2 (/Users/daniel.strom/Code/pino-dev/node_modules/jest-jasmine2/build/index.js:230:13)\\",\\"type\\":\\"Error\\",\\"msg\\":\\"An error happened somehow\\"}
+    at /some/path/to/file:23:98
+    at step (/some/path/to/file:23:98)
+    at Object.next (/some/path/to/file:23:98)
+    at /some/path/to/file:23:98
+    at new Promise (<anonymous>)
+    at Object.<anonymous>.__awaiter (/some/path/to/file:23:98)
+    at Object.generateExamples (/some/path/to/file:23:98)
+    at /some/path/to/file:23:98
+    at step (/some/path/to/file:23:98)
+    at Object.next (/some/path/to/file:23:98)\\",\\"type\\":\\"Error\\",\\"msg\\":\\"An error happened somehow\\"}
 02:56:15.000 Info: Meta data via child logger
 02:56:15.000 [My Logger] Info: A logger with a name set
 02:56:15.000 Info: A logger without the base child logger
+02:56:15.000 Info: something else
+02:56:15.000 Info: GET /greet/world 200 123ms
 "
 `;

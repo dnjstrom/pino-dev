@@ -1,15 +1,20 @@
 import { prettifierFactory } from "../src";
-import { examples } from "./utils/examples";
+import { generateExamples } from "./utils/examples";
 
 describe("formatting examples", () => {
   let prettifier: ReturnType<typeof prettifierFactory>;
+  let examples: unknown[] = [];
+
+  beforeAll(async () => {
+    examples = await generateExamples();
+  });
 
   beforeEach(() => {
     prettifier = prettifierFactory();
   });
 
-  examples.forEach((input, index) => {
-    it(`formats example #${index} correctly`, () => {
+  it(`formats all examples correctly`, () => {
+    examples.forEach((input) => {
       expect(prettifier(JSON.stringify(input))).toMatchSnapshot();
     });
   });
