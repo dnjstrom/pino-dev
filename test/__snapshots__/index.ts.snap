@@ -69,8 +69,8 @@ exports[`formatting examples formats example #11 correctly 1`] = `
         at /some/path/to/file:23:98
         at new Promise (<anonymous>)
         at __awaiter (/some/path/to/file:23:98)
-        at Object.generateExamples (/some/path/to/file:23:98)
-        at Object.<anonymous> (/some/path/to/file:23:98:1)
+        at generateExamples (/some/path/to/file:23:98)
+        at Object.<anonymous> (/some/path/to/file:23:98)
         at Module._compile (internal/some/path/to/file:23:98)
         at Module.m._compile (/some/path/to/file:23:98)
 "
