@@ -2,3 +2,4 @@ node_modules
 dist
 examples.txt
 .vscode/
+examples.ndjson
