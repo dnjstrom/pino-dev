@@ -38,7 +38,7 @@ const mapProperties = (
 
 export const prettifierFactory = (
   options: PartialDeep<Config> = {}
-): ((line: string) => string) => {
+): ((line: string | unknown) => string) => {
   const opts = mergeConfig(config, options);
 
   debug(`Using config ${JSON.stringify(opts, null, 2)}.`);
