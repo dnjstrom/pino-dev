@@ -65,14 +65,14 @@
     "transport"
   ],
   "devDependencies": {
-    "@types/args": "3.0.0",
-    "@types/debug": "4.1.5",
+    "@types/args": "^5.0.0",
+    "@types/debug": "^4.1.7",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.17",
     "@types/pino": "6.3.4",
     "@types/pump": "^1.1.1",
     "@types/readable-stream": "^2.3.13",
-    "@types/split2": "2.1.6",
+    "@types/split2": "^3.2.1",
     "@types/strip-ansi": "5.2.1",
     "@types/supertest": "2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
@@ -82,7 +82,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
-    "mockdate": "3.0.2",
+    "mockdate": "^3.0.5",
     "pino": "6.8.0",
     "pino-debug": "2.0.0",
     "pino-http": "6.6.0",
@@ -100,11 +100,11 @@
     "args": "5.0.1",
     "chalk": "^4.1.2",
     "date-fns": "^2.28.0",
-    "debug": "4.3.1",
+    "debug": "^4.3.3",
     "joycon": "^3.1.1",
     "pump": "^3.0.0",
     "readable-stream": "^3.6.0",
     "split2": "^4.1.0",
-    "strip-ansi": "^6.0.0"
+    "strip-ansi": "^6.0.1"
   }
 }
