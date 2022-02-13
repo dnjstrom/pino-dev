@@ -2,12 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-     "outDir": "./dist",
+    "outDir": "./dist",
     "strict": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
+    "typeRoots": ["./node_modules/@types", "./types"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

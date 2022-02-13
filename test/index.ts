@@ -1,3 +1,5 @@
+process.env.FORCE_COLOR = "0";
+
 import { prettifierFactory } from "../src";
 import { examples } from "./utils/examples";
 

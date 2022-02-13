@@ -1,34 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cli handles all examples correctly 1`] = `
-"123
-\\"Some string\\"
-[1,2,3]
-{\\"level\\":4456789}
-A message without anything else
-02:56:15.000: A message without level.
-Trace: A message without time
-02:56:15.000 [acme] Fatal: This is a message
-02:56:15.000 [acme] Error: This is a message
-02:56:15.000 [acme] Warn: This is a message
-02:56:15.000 [acme] Info: This is a message
-02:56:15.000 [acme] Debug: This is a message
-02:56:15.000 [acme] Trace: This is a message
-22:16:18.936 [acme] Info: GET / 200 3ms
-22:16:18.936 [acme] Error: HEAD /ping 500 3ms
-22:16:18.936 [acme] Info: POST /post/123 301 3ms
-02:56:15.000 [acme > express:router] Trace: A message with a namespace
-02:56:15.000 Debug: This is a message without name
-{\\"level\\":20,\\"name\\":\\"acme\\",\\"msg\\":\\"This is a message with newlines {
-  \\\\\\"foo\\\\\\": \\\\\\"bar\\\\\\"
-}\\",\\"time\\":-14162625000}
-{\\"level\\":50,\\"pid\\":62822,\\"hostname\\":\\"my-computer.Mac.local\\",\\"name\\":\\"acme\\",\\"msg\\":\\"Uncaught exception\\",\\"time\\":-14162625000,\\"stack\\":\\"Error: This is an error
-    at Producer.flush (/app/node_modules/some-file.js:245:11)
-    at Producer.disconnect (/app/node_modules/some-file.js:288:8)
-    at process.<anonymous> (/app/src/foobar.ts:81:12)
-    at process.emit (events.js:323:22)
-    at process.emit (/app/node_modules/source-map-support/source-map-support.js:495:21)\\"}
-{\\"level\\":20,\\"name\\":\\"acme\\",\\"msg\\":\\"	   This is a message with leading whitespace\\",\\"time\\":-14162625000}
-{\\"level\\":20,\\"name\\":\\"acme\\",\\"msg\\":\\"This is a message with ending whitespace	   \\",\\"time\\":-14162625000}
+"\\"miscellaneous text\\"
+02:56:15.000 Trace: An info message
+02:56:15.000 Debug: A debug message
+02:56:15.000 Info: An info message
+02:56:15.000 Warn: A warning message
+02:56:15.000 Error: An error message
+02:56:15.000 Fatal: A fatal message
+{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"	    A message with leading whitespace\\"}
+{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"A message with ending whitespace    	\\"}
+{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"msg\\":\\"A multi-line message. Lorem ipsum
+  dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+  finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+  porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+  Vivamus vehicula ante nisi, id porta odio blandit ut.\\"}
+02:56:15.000 Info: A message with an object parameter
+{\\"level\\":50,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"my-computer\\",\\"stack\\":\\"Error: Oh noes!
+    at /some/path/to/file:23:98
+    at step (/some/path/to/file:23:98)
+    at Object.next (/some/path/to/file:23:98)
+    at /some/path/to/file:23:98
+    at new Promise (<anonymous>)
+    at __awaiter (/some/path/to/file:23:98)
+    at generateExamples (/some/path/to/file:23:98)
+    at Object.<anonymous> (/some/path/to/file:23:98)
+    at Module._compile (internal/some/path/to/file:23:98)
+    at Module.m._compile (/some/path/to/file:23:98)\\",\\"type\\":\\"Error\\",\\"msg\\":\\"An error happened somehow\\"}
+02:56:15.000 Info: Meta data via child logger
+02:56:15.000 [My Logger] Info: A logger with a name set
+02:56:15.000 Info: A logger without the base child logger
+02:56:15.000 Info: something else
+02:56:15.000 Info: GET /greet/world 200 123ms
+02:56:15.000 [my-test:namespace] Trace: A debug message
+\\"\\"
 "
 `;
