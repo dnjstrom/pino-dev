@@ -98,13 +98,13 @@
   "dependencies": {
     "@hapi/bourne": "2.0.0",
     "args": "5.0.1",
-    "chalk": "2.4.2",
+    "chalk": "^4.1.2",
     "date-fns": "^2.28.0",
     "debug": "4.3.1",
     "joycon": "^3.1.1",
     "pump": "^3.0.0",
     "readable-stream": "^3.6.0",
     "split2": "^4.1.0",
-    "strip-ansi": "6.0.0"
+    "strip-ansi": "^6.0.0"
   }
 }
