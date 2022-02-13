@@ -105,6 +105,6 @@
     "pump": "3.0.0",
     "readable-stream": "3.6.0",
     "split2": "4.1.0",
-    "strip-ansi": "6.0.1"
+    "strip-ansi": "7.0.1"
   }
 }
