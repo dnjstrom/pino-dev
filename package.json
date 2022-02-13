@@ -83,7 +83,7 @@
     "husky": "7.0.4",
     "jest": "27.5.1",
     "mockdate": "3.0.5",
-    "pino": "6.8.0",
+    "pino": "7.6.5",
     "pino-debug": "2.0.0",
     "pino-http": "6.6.0",
     "prettier": "2.5.1",
