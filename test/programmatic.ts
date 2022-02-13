@@ -21,10 +21,10 @@ describe("Programmatic usage", () => {
 
   it("Formats correctly", () => {
     logger.info("Testing 123...");
-    expect(destination.getOutput()).toMatchInlineSnapshot(`
+    expect(destination.getOutput().map((log) => JSON.stringify(log)))
+      .toMatchInlineSnapshot(`
       Array [
-        "[object Object]
-      ",
+        "\\"01:00:00 Info: Testing 123...\\\\n\\"",
       ]
     `);
   });

@@ -43,11 +43,15 @@ export const prettifierFactory = (
 
   debug(`Using config ${JSON.stringify(opts, null, 2)}.`);
 
-  return (line: string) => {
+  // `line` is a string most of the time, but can be an object when used programmatically.
+  return (line: string | unknown) => {
     let input: Input;
 
     try {
-      const parsed = bourne.parse(line, { protoAction: "remove" });
+      const parsed =
+        typeof line === "string"
+          ? bourne.parse(line, { protoAction: "remove" })
+          : line;
       input = mapProperties(opts.propertyMap, parsed);
     } catch (err) {
       debug(`Error parsing input \`${line}\`.`);
