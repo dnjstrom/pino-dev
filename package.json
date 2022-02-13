@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
-    "pretest": "sh ./test/utils/generateAllExamples.sh",
+    "generate": "sh ./test/utils/generateAllExamples.sh",
+    "pretest": "npm run generate",
     "test": "npm run test:types && npm run lint && npm run test:unit",
     "test:types": "tsc --noEmit",
     "test:unit": "node --inspect ./node_modules/.bin/jest --runInBand",

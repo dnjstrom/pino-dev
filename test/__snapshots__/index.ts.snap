@@ -47,11 +47,11 @@ exports[`formatting examples formats example #8 correctly 1`] = `
 
 exports[`formatting examples formats example #9 correctly 1`] = `
 "02:56:15 Info: A multi-line message. Lorem ipsum
-                 dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
-                 finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
-                 porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
-                 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                 Vivamus vehicula ante nisi, id porta odio blandit ut.
+               dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
+               finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
+               porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
+               Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+               Vivamus vehicula ante nisi, id porta odio blandit ut.
 "
 `;
 
