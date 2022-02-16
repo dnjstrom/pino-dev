@@ -2,6 +2,18 @@ import { Input } from "../../src/types";
 
 const TIME = new Date("1969-07-21 02:56:15").getTime();
 
+const STACK = `Error: Oh noes!
+at /some/path/to/file:23:98
+at step (/some/path/to/file:23:98)
+at Object.next (/some/path/to/file:23:98)
+at /some/path/to/file:23:98
+at new Promise (<anonymous>)
+at __awaiter (/some/path/to/file:23:98)
+at generateExamples (/some/path/to/file:23:98)
+at Object.<anonymous> (/some/path/to/file:23:98)
+at Module._compile (internal/some/path/to/file:23:98)
+at Module.m._compile (/some/path/to/file:23:98)`;
+
 // Overrides some dynamic properties with static ones to ensure stable snapshot tests.
 export const overrideDynamicLogProperties = <T extends Input>(log: T): T => {
   if (log.pid !== undefined) {
@@ -17,10 +29,7 @@ export const overrideDynamicLogProperties = <T extends Input>(log: T): T => {
   }
 
   if (log.err?.stack !== undefined) {
-    log.err = {
-      ...log.err,
-      stack: log.err.stack.replace(/\/.+:\d\d/gi, "/some/path/to/file:23:98"),
-    };
+    log.err.stack = STACK;
   }
 
   if (log.responseTime !== undefined) {
