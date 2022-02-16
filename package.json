@@ -1,6 +1,6 @@
 {
   "name": "pino-dev",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "A simple prettifier for pino with built-in support for commonly used ecosystem packages.",
   "author": "Daniel Ström <D@nielstrom.se>",
   "license": "ISC",
