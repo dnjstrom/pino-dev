@@ -63,16 +63,16 @@ exports[`formatting examples formats example #10 correctly 1`] = `
 exports[`formatting examples formats example #11 correctly 1`] = `
 "02:56:15 Error: An error happened somehow
     Error: Oh noes!
-        at /some/path/to/file:23:98
-        at step (/some/path/to/file:23:98)
-        at Object.next (/some/path/to/file:23:98)
-        at /some/path/to/file:23:98
-        at new Promise (<anonymous>)
-        at __awaiter (/some/path/to/file:23:98)
-        at generateExamples (/some/path/to/file:23:98)
-        at Object.<anonymous> (/some/path/to/file:23:98)
-        at Module._compile (internal/some/path/to/file:23:98)
-        at Module.m._compile (/some/path/to/file:23:98)
+    at /some/path/to/file:23:98
+    at step (/some/path/to/file:23:98)
+    at Object.next (/some/path/to/file:23:98)
+    at /some/path/to/file:23:98
+    at new Promise (<anonymous>)
+    at __awaiter (/some/path/to/file:23:98)
+    at generateExamples (/some/path/to/file:23:98)
+    at Object.<anonymous> (/some/path/to/file:23:98)
+    at Module._compile (internal/some/path/to/file:23:98)
+    at Module.m._compile (/some/path/to/file:23:98)
 "
 `;
 
