@@ -23,7 +23,7 @@ describe("Programmatic usage", () => {
     logger.info("Testing 123...");
     expect(destination.getOutput()).toMatchInlineSnapshot(`
       Array [
-        "01:00:00 Info: Testing 123...
+        "00:00:00 Info: Testing 123...
       ",
       ]
     `);

@@ -8,26 +8,26 @@ exports[`cli handles all examples correctly 1`] = `
 02:56:15 Warn: A warning message
 02:56:15 Error: An error message
 02:56:15 Fatal: A fatal message
-{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"	    A message with leading whitespace\\"}
-{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"A message with ending whitespace    	\\"}
-{\\"level\\":30,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"A multi-line message. Lorem ipsum
+{\\"level\\":30,\\"time\\":-14159025000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"	    A message with leading whitespace\\"}
+{\\"level\\":30,\\"time\\":-14159025000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"A message with ending whitespace    	\\"}
+{\\"level\\":30,\\"time\\":-14159025000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"msg\\":\\"A multi-line message. Lorem ipsum
 dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
 finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
 porttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
 Vivamus vehicula ante nisi, id porta odio blandit ut.\\"}
 02:56:15 Info: A message with an object parameter
-{\\"level\\":50,\\"time\\":-14162625000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"err\\":{\\"type\\":\\"Error\\",\\"message\\":\\"Oh noes!\\",\\"stack\\":\\"Error: Oh noes!
-    at /some/path/to/file:23:98
-    at step (/some/path/to/file:23:98)
-    at Object.next (/some/path/to/file:23:98)
-    at /some/path/to/file:23:98
-    at new Promise (<anonymous>)
-    at __awaiter (/some/path/to/file:23:98)
-    at generateExamples (/some/path/to/file:23:98)
-    at Object.<anonymous> (/some/path/to/file:23:98)
-    at Module._compile (internal/some/path/to/file:23:98)
-    at Module.m._compile (/some/path/to/file:23:98)\\"},\\"msg\\":\\"An error happened somehow\\"}
+{\\"level\\":50,\\"time\\":-14159025000,\\"pid\\":12345,\\"hostname\\":\\"localhost\\",\\"err\\":{\\"type\\":\\"Error\\",\\"message\\":\\"Oh noes!\\",\\"stack\\":\\"Error: Oh noes!
+at /some/path/to/file:23:98
+at step (/some/path/to/file:23:98)
+at Object.next (/some/path/to/file:23:98)
+at /some/path/to/file:23:98
+at new Promise (<anonymous>)
+at __awaiter (/some/path/to/file:23:98)
+at generateExamples (/some/path/to/file:23:98)
+at Object.<anonymous> (/some/path/to/file:23:98)
+at Module._compile (internal/some/path/to/file:23:98)
+at Module.m._compile (/some/path/to/file:23:98)\\"},\\"msg\\":\\"An error happened somehow\\"}
 02:56:15 Info: Meta data via child logger
 02:56:15 [My Logger] Info: A logger with a name set
 02:56:15 Info: A logger without the base child logger
