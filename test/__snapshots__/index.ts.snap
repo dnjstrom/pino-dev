@@ -92,6 +92,21 @@ exports[`formatting examples formats example #14 correctly 1`] = `
 `;
 
 exports[`formatting examples formats example #15 correctly 1`] = `
+"02:56:15 Info: something else
+"
+`;
+
+exports[`formatting examples formats example #16 correctly 1`] = `
+"02:56:15 Info: GET /greet/world 200 123ms
+"
+`;
+
+exports[`formatting examples formats example #17 correctly 1`] = `
+"02:56:15 [My Logger > my-test:namespace] Trace: A debug message
+"
+`;
+
+exports[`formatting examples formats example #18 correctly 1`] = `
 "\\"\\"
 "
 `;
