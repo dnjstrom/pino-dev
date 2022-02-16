@@ -2,6 +2,9 @@
 
 A simple prettifier for [pino](https://github.com/pinojs/pino) with built-in support for common ecosystem packages. Designed to be clear, unintrusive and to the point with sensible defaults optimized for use during development.
 
+![Node.js CI](https://github.com/dnjstrom/pino-dev/actions/workflows/node.js.yml/badge.svg)
+![Codeql Analysis](https://github.com/dnjstrom/pino-dev/actions/workflows/codeql-analysis.yml/badge.svg)
+
 ![Screenshot](https://github.com/dnjstrom/pino-dev/blob/main/screenshot.png?raw=true)
 
 ## Supported packages
