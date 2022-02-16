@@ -27,7 +27,7 @@ describe("cli", () => {
     const flags = `--time-format 'HH:mm:ss' --newline '\r\n' --property-map '{ "msg": "foo" }'`;
     const output = runCli(input, flags);
     expect(output).toMatchInlineSnapshot(`
-      "20:31:29: hello
+      "19:31:29: hello
       "
     `);
   });
