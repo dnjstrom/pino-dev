@@ -14,7 +14,7 @@
     "pretest": "npm run generate",
     "test": "npm run test:types && npm run lint && npm run test:unit",
     "test:types": "tsc --noEmit",
-    "test:unit": "TZ=UTC node --inspect ./node_modules/.bin/jest --runInBand",
+    "test:unit": "TZ=UTC node --inspect ./node_modules/.bin/jest --runInBand --coverage",
     "test:unit:watch": "npm run test:unit --watch",
     "prebuild": "rimraf ./dist",
     "build": "tsc",
