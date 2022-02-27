@@ -1,7 +1,8 @@
 #!/usr/bin/env ts-node
 
+// eslint-disable-next-line node/shebang
 import http from "http";
-import pinoHttp from "pino-http";
+import { pinoHttp } from "pino-http";
 import request from "supertest";
 
 export const generateExamples = async (): Promise<void> => {
@@ -26,6 +27,4 @@ export const generateExamples = async (): Promise<void> => {
   });
 };
 
-generateExamples()
-  .then(() => process.exit(0))
-  .catch(() => process.exit(1));
+generateExamples().catch(console.error);
