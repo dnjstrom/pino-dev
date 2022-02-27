@@ -10,7 +10,12 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "incremental": true
+    "incremental": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false
   },
   "exclude": ["test/**/*"]
 }
