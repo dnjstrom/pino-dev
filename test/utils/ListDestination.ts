@@ -10,7 +10,7 @@ export class ListDestination extends Writable {
     this.output = [];
   }
 
-  _write(
+  override _write(
     chunk: Buffer,
     _encoding: BufferEncoding,
     done: (error?: Error | null) => void

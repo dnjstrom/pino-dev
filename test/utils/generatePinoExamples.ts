@@ -1,6 +1,7 @@
 #!/usr/bin/env ts-node
 
-import pino from "pino";
+// eslint-disable-next-line node/shebang
+import { pino } from "pino";
 
 const logger = pino({
   level: "trace",
@@ -34,6 +35,4 @@ export const generateExamples = async (): Promise<void> => {
   }).info("A logger without the base child logger");
 };
 
-generateExamples()
-  .then(() => process.exit(0))
-  .catch(() => process.exit(1));
+generateExamples().catch(console.error);

@@ -1,6 +1,6 @@
 import { setDeep } from "../src/utils";
 
-describe.only("setDeep", () => {
+describe("setDeep", () => {
   it("sets shallow objects properly", () => {
     expect(setDeep({}, ["foo"], 42)).toEqual({ foo: 42 });
   });
@@ -17,7 +17,7 @@ describe.only("setDeep", () => {
     });
   });
 
-  it("adds objects if necessary", () => {
+  it("adds deep objects if necessary", () => {
     expect(() => setDeep({ foo: 123 }, ["foo", "bar"], 42)).toThrow();
   });
 });

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import fs from "fs";
 import pump from "pump";
 import split from "split2";
@@ -27,13 +25,15 @@ args
   .option(["-", "color"], "Force color.")
   .option(["-", "no-color"], "Force no color.");
 
-const options = args.parse(process.argv);
+const options: Record<string, string> = args.parse(process.argv);
 const parsedPropertyMap = (() => {
-  if (!options.propertyMap) {
+  const propertyMapString = options.propertyMap;
+
+  if (!propertyMapString) {
     return;
   }
 
-  const propertyMap = bourne.parse(options.propertyMap, {
+  const propertyMap = bourne.parse(propertyMapString, {
     protoAction: "remove",
   });
 
