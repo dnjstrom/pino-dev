@@ -20,7 +20,7 @@
     "test:unit": "TZ=UTC node --inspect ./node_modules/.bin/jest --runInBand --coverage",
     "test:unit:watch": "npm run test:unit --watch",
     "prebuild": "rimraf ./dist",
-    "build": "tsc",
+    "build": "NODE_ENV=production tsc",
     "build:watch": "tsc -w",
     "lint": "eslint '*/**/*.ts' --max-warnings 0",
     "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
