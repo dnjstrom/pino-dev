@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+// eslint-disable-next-line node/shebang
 import fs from "fs";
 import pump from "pump";
 import split from "split2";
