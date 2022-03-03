@@ -23,7 +23,8 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "lint": "eslint '*/**/*.ts' --max-warnings 0",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish"
+    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
