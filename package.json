@@ -1,6 +1,6 @@
 {
   "name": "pino-dev",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "A simple prettifier for pino with built-in support for commonly used ecosystem packages.",
   "author": "Daniel Ström <D@nielstrom.se>",
   "license": "ISC",
@@ -20,10 +20,11 @@
     "test:unit": "TZ=UTC node --inspect ./node_modules/.bin/jest --runInBand --coverage",
     "test:unit:watch": "npm run test:unit --watch",
     "prebuild": "rimraf ./dist",
-    "build": "tsc",
+    "build": "NODE_ENV=production tsc",
     "build:watch": "tsc -w",
     "lint": "eslint '*/**/*.ts' --max-warnings 0",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish"
+    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
