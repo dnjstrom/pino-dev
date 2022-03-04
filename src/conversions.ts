@@ -18,6 +18,7 @@ export const levelToString = (level: number): string => {
       return "Unknown";
   }
 };
+
 export const levelToColor = (level: number): Chalk => {
   switch (level) {
     case 60:
@@ -36,6 +37,7 @@ export const levelToColor = (level: number): Chalk => {
       return chalk.reset;
   }
 };
+
 export const statusCodeToColor = (statusCode: number): Chalk => {
   if (statusCode >= 500 && statusCode <= 599) {
     return chalk.red;

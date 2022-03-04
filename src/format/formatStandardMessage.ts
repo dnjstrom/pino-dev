@@ -1,5 +1,5 @@
 import stripAnsi from "strip-ansi";
-import { words, padLinesWithSpaces, joinWith, leftPad } from "../utils";
+import { joinWith, padLinesWithSpaces, leftPad } from "../utils";
 import { formatHeader } from "./formatHeader";
 import { Config, Input } from "../types";
 
@@ -14,7 +14,7 @@ export const formatStandardMessage = (input: Input, config: Config): string => {
     input.msg,
     config.newline
   );
-  const result = words(headerText, messageText);
+  const result = joinWith(" ", [headerText, messageText]);
 
   return joinWith(config.newline, [result, stackText]);
 };
