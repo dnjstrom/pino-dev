@@ -1,0 +1,6 @@
+.husky
+coverage
+dist
+node_modules
+test/utils/examples.ndjson
+package-lock.json
