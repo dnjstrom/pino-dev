@@ -5,7 +5,7 @@ import { words } from "../utils";
 import { Config, Input } from "../types";
 
 export const formatHeader = (input: Input, config: Config): string => {
-  const timeText = input.time && format(input.time, config.timeFormat);
+  const timeText = input.time && typeof input.time === "number" ? format(input.time, config.timeFormat) : input.time;
 
   const labels = [input.name, input.ns && chalk.magenta(input.ns)].filter(
     Boolean

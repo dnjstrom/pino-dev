@@ -6,7 +6,7 @@ import * as path from "path";
 const binPath = path.resolve(__dirname, "../src/bin.ts");
 
 const runCli = (input: string, flags = "") =>
-  execSync(`echo '${input}' | ts-node ${binPath} ${flags}`).toString();
+  execSync(`echo '${input}' | FORCE_COLOR=0 ts-node ${binPath} ${flags}`).toString();
 
 describe("cli", () => {
   let input = "";
