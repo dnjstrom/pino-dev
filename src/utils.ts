@@ -1,5 +1,7 @@
-const repeatString = (amount: number, str = " "): string =>
-  new Array(amount + 1).join(str);
+import { Falsy } from "./types";
+
+const repeatString = (amount: number, str: string): string =>
+  new Array(Math.max(amount, 0) + 1).join(str);
 
 export const leftPad = (
   amount: number,
@@ -32,14 +34,18 @@ export const getDeep = <T = unknown>(
 };
 
 export const setDeep = <T = unknown>(
-  obj: Record<string, unknown> = {},
+  obj: Record<string, unknown>,
   keys: string[],
   value: T
 ): Record<string, unknown> => {
   const [key, ...remainingKeys] = keys;
 
   if (key == null) {
-    return obj;
+    throw new Error(
+      `Invalid path "${keys}" when setting "${value}" in \`${JSON.stringify(
+        obj
+      )}\`.`
+    );
   } else if (remainingKeys.length === 0) {
     obj[key] = value;
     return obj;
@@ -53,7 +59,10 @@ export const setDeep = <T = unknown>(
   return obj;
 };
 
-export const joinWith = (separator: string, items: unknown[]): string =>
-  items.filter(Boolean).join(separator);
-
-export const words = (...args: unknown[]): string => joinWith(" ", args);
+/**
+ * Concatenates parameters with separator, omitting any falsy values.
+ */
+export const joinWith = (
+  separator: string,
+  items: Array<string | Falsy>
+): string => items.filter(Boolean).join(separator);

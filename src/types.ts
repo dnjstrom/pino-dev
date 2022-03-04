@@ -52,3 +52,5 @@ export type PropertyMap = {
   "res.statusCode": PropertyMapValue;
   responseTime: PropertyMapValue;
 };
+
+export type Falsy = false | 0 | null | undefined | "";

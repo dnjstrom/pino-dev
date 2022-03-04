@@ -1,11 +1,14 @@
 import { format } from "date-fns";
 import chalk from "chalk";
 import { levelToColor, levelToString } from "../conversions";
-import { words } from "../utils";
+import { joinWith } from "../utils";
 import { Config, Input } from "../types";
 
 export const formatHeader = (input: Input, config: Config): string => {
-  const timeText = input.time && typeof input.time === "number" ? format(input.time, config.timeFormat) : input.time;
+  const timeText =
+    typeof input.time === "number"
+      ? format(input.time, config.timeFormat)
+      : input.time;
 
   const labels = [input.name, input.ns && chalk.magenta(input.ns)].filter(
     Boolean
@@ -14,7 +17,7 @@ export const formatHeader = (input: Input, config: Config): string => {
   const levelText =
     input.level && levelToColor(input.level)(levelToString(input.level));
 
-  const headerText = words(timeText, labelsText, levelText);
+  const headerText = joinWith(" ", [timeText, labelsText, levelText]);
 
   return headerText && chalk.grey(headerText + ":");
 };
