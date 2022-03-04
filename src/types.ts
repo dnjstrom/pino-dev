@@ -17,7 +17,7 @@ export type Input = {
   msg: string;
   pid?: number;
   hostname?: string;
-  time?: number;
+  time?: number | string;
   level?: number;
   ns?: string;
   name?: string;
