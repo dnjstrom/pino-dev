@@ -17,9 +17,9 @@
     "pretest": "npm run generate",
     "test": "npm run test:types && npm run lint && npm run test:unit",
     "test:types": "tsc --noEmit",
-    "test:unit": "TZ=UTC jest --coverage",
-    "test:unit:update": "TZ=UTC jest --updateSnapshot",
-    "test:unit:watch": "TZ=UTC node --inspect ./node_modules/.bin/jest --runInBand --watch",
+    "test:unit": "jest --coverage",
+    "test:unit:update": "jest --updateSnapshot",
+    "test:unit:watch": "node --inspect ./node_modules/.bin/jest --runInBand --coverage --watch",
     "prebuild": "rimraf ./dist",
     "build": "NODE_ENV=production tsc",
     "build:watch": "tsc -w",
@@ -45,7 +45,8 @@
     "testEnvironment": "node",
     "testMatch": [
       "**/test/*.ts"
-    ]
+    ],
+    "globalSetup": "./jest.global-setup.ts"
   },
   "husky": {
     "hooks": {

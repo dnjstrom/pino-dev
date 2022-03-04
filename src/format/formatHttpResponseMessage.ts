@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { statusCodeToColor } from "../conversions";
 import { formatHeader } from "./formatHeader";
-import { words } from "../utils";
+import { joinWith } from "../utils";
 import { Config, Input } from "../types";
 
 export const formatHttpResponseMessage = (
@@ -15,11 +15,11 @@ export const formatHttpResponseMessage = (
     statusCodeToColor(input.res.statusCode)(String(input.res.statusCode));
   const responseTimeText = input.responseTime && `${input.responseTime}ms`;
 
-  return words(
+  return joinWith(" ", [
     headerText,
     methodText,
     input.req?.url,
     statusText,
-    responseTimeText
-  );
+    responseTimeText,
+  ]);
 };
