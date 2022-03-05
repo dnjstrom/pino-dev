@@ -3,10 +3,9 @@ import { examples } from "./utils/examples";
 import * as path from "path";
 
 const binPath = path.resolve(__dirname, "../src/bin.ts");
-const tsNodePath = path.resolve(__dirname, "../node_modules/.bin/ts-node");
 
 const runCli = (input: string, flags = "") =>
-  execSync(`FORCE_COLOR=0 ${tsNodePath} ${binPath} ${flags}`, {
+  execSync(`FORCE_COLOR=0 node -r @swc-node/register ${binPath} ${flags}`, {
     input,
   }).toString();
 

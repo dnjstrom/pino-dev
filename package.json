@@ -77,7 +77,9 @@
     "transport"
   ],
   "devDependencies": {
+    "@swc-node/register": "^1.4.2",
     "@swc/core": "^1.2.148",
+    "@swc/helpers": "^0.3.6",
     "@swc/jest": "^0.2.20",
     "@types/args": "5.0.0",
     "@types/debug": "4.1.7",
@@ -107,6 +109,7 @@
     "pino-debug": "2.0.0",
     "pino-http": "6.6.0",
     "prettier": "2.5.1",
+    "regenerator-runtime": "^0.13.9",
     "rimraf": "3.0.2",
     "supertest": "6.2.2",
     "ts-node": "10.6.0",

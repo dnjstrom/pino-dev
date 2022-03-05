@@ -28,6 +28,7 @@
   "exclude": ["test", "**/*.test.*"],
 
   "ts-node": {
-    "transpileOnly": true
+    "transpileOnly": true,
+    "swc": true
   }
 }
