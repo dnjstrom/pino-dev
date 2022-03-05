@@ -1,7 +1,7 @@
 import JoyCon from "joycon";
 import bourne from "@hapi/bourne";
-import { debug } from "./debug";
-import { Config } from "./types";
+import { debug } from "../debug";
+import { Config } from "../types";
 import { PartialDeep } from "type-fest";
 
 const joycon = new JoyCon({
