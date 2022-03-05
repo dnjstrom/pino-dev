@@ -1,6 +1,13 @@
-import chalk, { Chalk } from "chalk";
+import { Chalk } from "chalk";
+import { Config } from "../config";
+import { getChalk } from "./getChalk";
 
-export const statusCodeToColor = (statusCode: number): Chalk => {
+export const statusCodeToColor = (
+  statusCode: number,
+  config: Config
+): Chalk => {
+  const chalk = getChalk(config);
+
   if (statusCode >= 500 && statusCode <= 599) {
     return chalk.red;
   } else if (statusCode >= 400 && statusCode <= 499) {

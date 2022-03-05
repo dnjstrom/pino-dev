@@ -60,6 +60,7 @@ Configuration is preferably stored as a `pino-dev.config.json` or `pino-dev.conf
 {
   "newline": "\n",
   "timeFormat": "HH:mm:ss",
+  "colorize": undefined,
   "propertyMap": {
     "msg": "msg",
     "level": "level",

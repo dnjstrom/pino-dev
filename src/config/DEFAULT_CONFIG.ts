@@ -3,6 +3,7 @@ import { Config } from ".";
 export const DEFAULT_CONFIG: Config = {
   newline: "\n",
   timeFormat: "HH:mm:ss",
+  colorize: undefined,
   propertyMap: {
     msg: "msg",
     level: "level",

@@ -1,6 +1,10 @@
-import chalk, { Chalk } from "chalk";
+import { Chalk } from "chalk";
+import { Config } from "../config";
+import { getChalk } from "./getChalk";
 
-export const levelToColor = (level: number): Chalk => {
+export const levelToColor = (level: number, config: Config): Chalk => {
+  const chalk = getChalk(config);
+
   switch (level) {
     case 60:
       return chalk.red.bold;

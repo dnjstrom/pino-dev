@@ -10,6 +10,7 @@ export type Config = {
   newline: string;
   timeFormat: string;
   propertyMap: PropertyMap;
+  colorize?: boolean;
 };
 
 const joycon = new JoyCon({

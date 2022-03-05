@@ -1,5 +1,3 @@
-process.env.FORCE_COLOR = "0";
-
 import { prettifierFactory } from ".";
 import { examples } from "../test/utils/examples";
 
@@ -7,7 +5,9 @@ describe("formatting examples", () => {
   let prettifier: ReturnType<typeof prettifierFactory>;
 
   beforeEach(() => {
-    prettifier = prettifierFactory();
+    prettifier = prettifierFactory({
+      colorize: false,
+    });
   });
 
   examples.forEach((input, index) => {
