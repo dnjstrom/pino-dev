@@ -17,5 +17,8 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false
   },
-  "exclude": ["test/**/*"]
+  "exclude": ["test/**/*"],
+  "ts-node": {
+    "transpileOnly": true
+  }
 }

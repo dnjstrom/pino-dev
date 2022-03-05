@@ -1,5 +1,3 @@
-import { Falsy } from "../types";
-
 /**
  * Concatenates parameters with separator, omitting any falsy values.
  */

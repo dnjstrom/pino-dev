@@ -2,7 +2,8 @@ import chalk from "chalk";
 import { statusCodeToColor } from "./statusCodeToColor";
 import { formatHeader } from "./formatHeader";
 import { joinWith } from "../utils/joinWith";
-import { Config, Input } from "../types";
+import { Input } from "../parse/Input";
+import { Config } from "../config";
 
 export const formatHttpResponseMessage = (
   input: Input,

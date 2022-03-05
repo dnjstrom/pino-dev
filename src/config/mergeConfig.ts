@@ -1,4 +1,4 @@
-import { Config } from "../types";
+import { Config } from "../config";
 import { PartialDeep } from "type-fest";
 
 export const mergeConfig = (

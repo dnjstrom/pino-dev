@@ -3,7 +3,8 @@ import chalk from "chalk";
 import { levelToColor } from "./levelToColor";
 import { levelToString } from "./levelToString";
 import { joinWith } from "../utils/joinWith";
-import { Config, Input } from "../types";
+import { Input } from "../parse/Input";
+import { Config } from "../config";
 
 export const formatHeader = (input: Input, config: Config): string => {
   const timeText =

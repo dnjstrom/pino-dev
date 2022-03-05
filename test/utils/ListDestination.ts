@@ -1,5 +1,5 @@
 import { Writable } from "stream";
-import { Input } from "../../src/types";
+import { Input } from "../../src/parse/Input";
 import { overrideDynamicLogProperties } from "./overrideDynamicLogProperties";
 
 export class ListDestination extends Writable {

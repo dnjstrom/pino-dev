@@ -1,4 +1,4 @@
-import { Config } from "../types";
+import { Config } from ".";
 
 export const DEFAULT_CONFIG: Config = {
   newline: "\n",

@@ -9,7 +9,7 @@ import { prettifierFactory } from "./index";
 import args from "args";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
-import { Config } from "./types";
+import { Config } from "./config";
 import { PartialDeep } from "type-fest";
 
 args
