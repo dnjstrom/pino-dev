@@ -5,9 +5,9 @@ import { overrideDynamicLogProperties } from "./overrideDynamicLogProperties";
 const buffer = readFileSync(path.join(__dirname, "/examples.ndjson"));
 const lines = buffer.toString().split("\n");
 
-export const examples: unknown[] = lines.map((line) => {
+export const examples: string[] = lines.map((line) => {
   try {
-    return overrideDynamicLogProperties(JSON.parse(line));
+    return JSON.stringify(overrideDynamicLogProperties(JSON.parse(line)));
   } catch (error) {
     return line;
   }

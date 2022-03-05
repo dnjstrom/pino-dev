@@ -1,7 +1,7 @@
 process.env.FORCE_COLOR = "0";
 
-import { prettifierFactory } from "../src";
-import { examples } from "./utils/examples";
+import { prettifierFactory } from ".";
+import { examples } from "../test/utils/examples";
 
 describe("formatting examples", () => {
   let prettifier: ReturnType<typeof prettifierFactory>;
@@ -12,7 +12,7 @@ describe("formatting examples", () => {
 
   examples.forEach((input, index) => {
     it(`formats example #${index} correctly`, () => {
-      expect(prettifier(JSON.stringify(input))).toMatchSnapshot();
+      expect(prettifier(input)).toMatchSnapshot();
     });
   });
 });

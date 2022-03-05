@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`formatting examples formats example #0 correctly 1`] = `
-"\\"miscellaneous text\\"
+"miscellaneous text
 "
 `;
 
@@ -107,6 +107,6 @@ exports[`formatting examples formats example #17 correctly 1`] = `
 `;
 
 exports[`formatting examples formats example #18 correctly 1`] = `
-"\\"\\"
+"
 "
 `;

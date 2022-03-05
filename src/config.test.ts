@@ -1,11 +1,12 @@
-import { mergeConfig, DEFAULT_CONFIG } from "../src/config";
+import { DEFAULT_CONFIG, mergeConfig } from "./config";
 
 describe("mergeConfig", () => {
-  it("Merges configs correctly", () => {
+  it("should merge configs appropriately", () => {
     const merged = mergeConfig(DEFAULT_CONFIG, {
-      timeFormat: "HH:mm:ss",
+      timeFormat: "HH:mm",
       propertyMap: {
-        level: "severity",
+        ns: false,
+        "err.stack": "err",
       },
     });
 
@@ -14,18 +15,18 @@ describe("mergeConfig", () => {
         "newline": "
       ",
         "propertyMap": Object {
-          "err.stack": "err.stack",
-          "level": "severity",
+          "err.stack": "err",
+          "level": "level",
           "msg": "msg",
           "name": "name",
-          "ns": "ns",
+          "ns": false,
           "req.method": "req.method",
           "req.url": "req.url",
           "res.statusCode": "res.statusCode",
           "responseTime": "responseTime",
           "time": "time",
         },
-        "timeFormat": "HH:mm:ss",
+        "timeFormat": "HH:mm",
       }
     `);
   });
