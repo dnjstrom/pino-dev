@@ -56,7 +56,8 @@
     }
   },
   "files": [
-    "dist/**/*"
+    "dist",
+    "!dist/tsconfig.tsbuildinfo"
   ],
   "repository": {
     "type": "git",

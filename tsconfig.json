@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    // Support Node 12 (Oldest maintained LTS release)
+    // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
+    "lib": ["ES2019"],
     "module": "commonjs",
+    "target": "ES2019",
+
     "outDir": "./dist",
-    "strict": true,
     "typeRoots": ["./node_modules/@types", "./types"],
+
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,9 +20,13 @@
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false
+    "noPropertyAccessFromIndexSignature": false,
+    "declaration": true
   },
-  "exclude": ["test/**/*"],
+
+  "include": ["src", "types"],
+  "exclude": ["test", "**/*.test.*"],
+
   "ts-node": {
     "transpileOnly": true
   }
