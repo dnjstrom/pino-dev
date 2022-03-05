@@ -1,8 +1,9 @@
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";
-import { getDeep, setDeep } from "./utils";
+import { getDeep } from "./utils/getDeep";
+import { setDeep } from "./utils/setDeep";
 import { format } from "./format";
-import { config, mergeConfig } from "./config";
+import { config, mergeConfig } from "./config/config";
 import { Config, Input, PropertyMap } from "./types";
 import { PartialDeep } from "type-fest";
 

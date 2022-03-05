@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import chalk from "chalk";
 import { levelToColor, levelToString } from "../conversions";
-import { joinWith } from "../utils";
+import { joinWith } from "../utils/joinWith";
 import { Config, Input } from "../types";
 
 export const formatHeader = (input: Input, config: Config): string => {
