@@ -1,4 +1,4 @@
-import { setDeep, leftPad, padLinesWithSpaces, getDeep } from "../src/utils";
+import { setDeep, leftPad, padLinesWithSpaces, getDeep } from "./utils";
 
 describe("leftPad", () => {
   it("pads the string with n spaces", () => {

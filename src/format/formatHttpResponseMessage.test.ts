@@ -1,6 +1,6 @@
 import stripAnsi from "strip-ansi";
-import { DEFAULT_CONFIG } from "../src/config";
-import { formatHttpResponseMessage } from "../src/format/formatHttpResponseMessage";
+import { DEFAULT_CONFIG } from "../config";
+import { formatHttpResponseMessage } from "./formatHttpResponseMessage";
 
 const time = 1646377816348;
 
