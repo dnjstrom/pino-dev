@@ -6,18 +6,13 @@ const binPath = path.resolve(__dirname, "../src/bin.ts");
 const tsNodePath = path.resolve(__dirname, "../node_modules/.bin/ts-node");
 
 const runCli = (input: string, flags = "") =>
-  execSync(
-    `echo '${input}' | FORCE_COLOR=0 ${tsNodePath} ${binPath} ${flags}`
-  ).toString();
+  execSync(`FORCE_COLOR=0 ${tsNodePath} ${binPath} ${flags}`, {
+    input,
+  }).toString();
 
 describe("cli", () => {
-  let input = "";
-
-  beforeAll(async () => {
-    input = examples.map((json) => JSON.stringify(json)).join("\n");
-  });
-
   it("handles all examples correctly", () => {
+    const input = examples.join("\n");
     expect(runCli(input)).toMatchSnapshot();
   });
 

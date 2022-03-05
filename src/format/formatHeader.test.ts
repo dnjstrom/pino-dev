@@ -1,6 +1,6 @@
 import stripAnsi from "strip-ansi";
-import { DEFAULT_CONFIG } from "../src/config";
-import { formatHeader } from "../src/format/formatHeader";
+import { DEFAULT_CONFIG } from "../config";
+import { formatHeader } from "./formatHeader";
 
 const time = 1646377816348;
 
