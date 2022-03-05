@@ -4,3 +4,4 @@ examples.txt
 .vscode/
 examples.ndjson
 coverage/
+.DS_Store

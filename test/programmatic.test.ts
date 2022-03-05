@@ -1,5 +1,3 @@
-process.env.FORCE_COLOR = "0";
-
 import { pino } from "pino";
 import { prettifierFactory as pinoDev } from "../src/index";
 import { ListDestination } from "./utils/ListDestination";

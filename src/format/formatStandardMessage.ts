@@ -1,7 +1,10 @@
 import stripAnsi from "strip-ansi";
-import { joinWith, padLinesWithSpaces, leftPad } from "../utils";
+import { joinWith } from "../utils/joinWith";
+import { padLinesWithSpaces } from "../utils/padLinesWithSpaces";
+import { leftPad } from "../utils/leftPad";
 import { formatHeader } from "./formatHeader";
-import { Config, Input } from "../types";
+import { Input } from "../parse/Input";
+import { Config } from "../config";
 
 export const formatStandardMessage = (input: Input, config: Config): string => {
   const headerText = formatHeader(input, config);
