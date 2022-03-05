@@ -1,5 +1,5 @@
 import stripAnsi from "strip-ansi";
-import { DEFAULT_CONFIG } from "../config/config";
+import { DEFAULT_CONFIG } from "../config/DEFAULT_CONFIG";
 import { formatHttpResponseMessage } from "./formatHttpResponseMessage";
 
 const time = 1646377816348;

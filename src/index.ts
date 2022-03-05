@@ -3,7 +3,8 @@ import { debug } from "./debug";
 import { getDeep } from "./utils/getDeep";
 import { setDeep } from "./utils/setDeep";
 import { format } from "./format";
-import { config, mergeConfig } from "./config/config";
+import { config } from "./config";
+import { mergeConfig } from "./config/mergeConfig";
 import { Config, Input, PropertyMap } from "./types";
 import { PartialDeep } from "type-fest";
 

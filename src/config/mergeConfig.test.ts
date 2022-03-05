@@ -1,4 +1,5 @@
-import { DEFAULT_CONFIG, mergeConfig } from "./config";
+import { mergeConfig } from "./mergeConfig";
+import { DEFAULT_CONFIG } from "./DEFAULT_CONFIG";
 
 describe("mergeConfig", () => {
   it("should merge configs appropriately", () => {
