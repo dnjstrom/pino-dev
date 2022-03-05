@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { statusCodeToColor } from "../conversions";
+import { statusCodeToColor } from "./statusCodeToColor";
 import { formatHeader } from "./formatHeader";
 import { joinWith } from "../utils/joinWith";
 import { Config, Input } from "../types";

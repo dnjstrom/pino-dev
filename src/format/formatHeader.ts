@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import chalk from "chalk";
-import { levelToColor, levelToString } from "../conversions";
+import { levelToColor } from "./levelToColor";
+import { levelToString } from "./levelToString";
 import { joinWith } from "../utils/joinWith";
 import { Config, Input } from "../types";
 
