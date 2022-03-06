@@ -12,7 +12,8 @@
     "node": ">=8.10.0"
   },
   "scripts": {
-    "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
+    "predev": "npm run generate",
+    "dev": "clear; ts-node-dev --inspect --clear --rs ./dev.ts",
     "generate": "sh ./test/utils/generateAllExamples.sh",
     "pretest": "npm run generate",
     "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' --names '‎' 'npm:test:*'",

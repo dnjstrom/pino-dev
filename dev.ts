@@ -1,5 +1,5 @@
-import { examples } from "./examples";
-import { prettifierFactory } from "../../src";
+import { examples } from "./test/utils/examples";
+import { prettifierFactory } from "./src";
 
 const prettifier = prettifierFactory();
 
