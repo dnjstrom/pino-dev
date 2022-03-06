@@ -20,7 +20,7 @@
     "jest:watch": "node --inspect ./node_modules/.bin/jest --runInBand --coverage --watch",
     "prebuild": "rimraf ./dist",
     "build": "NODE_ENV=production tsc",
-    "postbuild": "chmod +x ./dist/src/bin.js && ./prune-non-package-files.ts",
+    "postbuild": "chmod +x ./dist/src/bin.js && ./prune-non-package-files.sh",
     "build:watch": "tsc -w",
     "build:release": "npm test && npm run build && npm publish",
     "prepare": "husky install",

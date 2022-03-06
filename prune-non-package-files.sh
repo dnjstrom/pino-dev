@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Pack the archive
+archive=$(npm pack)
+
+# Replace build folder with package contents
+tar -xf "$archive"
+rm -fr dist
+mv package/dist dist
+
+# Clean up
+rm -fr package
+rm -fr "$archive"
