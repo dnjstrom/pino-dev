@@ -50,7 +50,7 @@
     "testMatch": [
       "**/*.test.ts"
     ],
-    "globalSetup": "./jest.global-setup.ts"
+    "globalSetup": "./test/jest.global-setup.ts"
   },
   "husky": {
     "hooks": {
