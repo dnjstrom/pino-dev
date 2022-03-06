@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit if any command fails
+set -e
+
 # Pack the archive
 archive=$(npm pack)
 
