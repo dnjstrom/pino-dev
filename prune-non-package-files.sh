@@ -4,7 +4,7 @@
 set -e
 
 # Pack the archive
-archive=$(npm pack)
+archive=$(yarn pack)
 
 # Replace build folder with package contents
 tar -xf "$archive"
