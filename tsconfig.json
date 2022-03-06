@@ -24,8 +24,8 @@
     "declaration": true
   },
 
-  "include": ["src", "types"],
-  "exclude": ["test", "**/*.test.*"],
+  // "include": ["src", "types"],
+  // "exclude": ["test", "**/*.test.*"],
 
   "ts-node": {
     "transpileOnly": true,

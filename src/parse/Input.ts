@@ -1,15 +1,10 @@
-type Request = {
-  method: string;
-  url: string;
+import { IncomingMessage, ServerResponse } from "http";
+
+type Request = Pick<IncomingMessage, "method" | "url" | "headers"> & {
+  remotePort?: number;
 };
-type Response = {
-  statusCode: number;
-};
-type Error = {
-  type: string;
-  message: string;
-  stack: string;
-};
+
+type Response = Pick<ServerResponse, "statusCode">;
 
 export type Input = {
   msg: string;

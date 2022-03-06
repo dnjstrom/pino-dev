@@ -4,23 +4,18 @@
   "description": "A simple prettifier for pino with built-in support for commonly used ecosystem packages.",
   "author": "Daniel Ström <D@nielstrom.se>",
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "bin": {
-    "pino-dev": "dist/bin.js"
+    "pino-dev": "dist/src/bin.js"
   },
   "engines": {
     "node": ">=8.10.0"
   },
   "scripts": {
-    "predev": "npm run generate",
-    "dev": "clear; ts-node-dev --inspect --clear --rs ./dev.ts",
     "generate": "sh ./test/utils/generateAllExamples.sh",
-    "pretest": "npm run generate",
-    "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' --names '‎' 'npm:test:*'",
-    "test:format": "prettier --check .",
-    "test:types": "tsc --noEmit",
-    "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
-    "test:unit": "jest --coverage",
+    "format": "prettier --write .",
+    "dev": "clear; ts-node-dev --inspect --clear --rs ./dev.ts",
+    "jest": "jest --coverage",
     "jest:update": "jest --updateSnapshot",
     "jest:watch": "node --inspect ./node_modules/.bin/jest --runInBand --coverage --watch",
     "prebuild": "rimraf ./dist",
@@ -28,7 +23,14 @@
     "build:watch": "tsc -w",
     "build:release": "npm test && npm run build && npm publish",
     "prepare": "husky install",
-    "format": "prettier --write ."
+    "test:format": "prettier --check .",
+    "test:types": "tsc --noEmit",
+    "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
+    "test:unit": "jest jest.global-setup.test.ts src/",
+    "pretest:integration": "npm run generate",
+    "test:integration": "jest jest.global-setup.test.ts test/",
+    "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan,green' --names 'test:' 'npm:test:*'",
+    "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -51,16 +53,15 @@
     "testMatch": [
       "**/*.test.ts"
     ],
-    "globalSetup": "./test/jest.global-setup.ts"
+    "globalSetup": "./jest.global-setup.ts"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run pre-commit"
     }
   },
   "files": [
-    "dist",
-    "!dist/tsconfig.tsbuildinfo"
+    "dist/src/**/*[!test].js"
   ],
   "repository": {
     "type": "git",
