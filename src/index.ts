@@ -33,3 +33,5 @@ export const prettifierFactory = (
     return format(input, opts) + config.newline;
   };
 };
+
+export default prettifierFactory;

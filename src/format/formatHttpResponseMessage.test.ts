@@ -21,7 +21,7 @@ describe("formatHttpResponseMessage", () => {
       {
         msg: "My message",
         time,
-        req: { method: "GET", url: "https://example.com/test" },
+        req: { method: "GET", url: "https://example.com/test", headers: {} },
         res: { statusCode: 200 },
         responseTime: 1337,
       },

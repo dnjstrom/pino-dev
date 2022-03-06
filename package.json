@@ -1,33 +1,37 @@
 {
   "name": "pino-dev",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "A simple prettifier for pino with built-in support for commonly used ecosystem packages.",
   "author": "Daniel Ström <D@nielstrom.se>",
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "bin": {
-    "pino-dev": "dist/bin.js"
+    "pino-dev": "dist/src/bin.js"
   },
   "engines": {
     "node": ">=8.10.0"
   },
   "scripts": {
-    "dev": "clear; ts-node-dev --inspect --clear --rs test/utils/dev.ts",
-    "generate": "sh ./test/utils/generateAllExamples.sh",
-    "pretest": "npm run generate",
-    "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' --names '‎' 'npm:test:*'",
-    "test:format": "prettier --check .",
-    "test:types": "tsc --noEmit",
-    "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
-    "test:unit": "jest --coverage",
+    "generate": "./test/utils/generateAllExamples.sh",
+    "format": "prettier --write .",
+    "dev": "clear; ts-node-dev --inspect --clear --rs ./dev.ts",
+    "jest": "jest --coverage",
     "jest:update": "jest --updateSnapshot",
     "jest:watch": "node --inspect ./node_modules/.bin/jest --runInBand --coverage --watch",
     "prebuild": "rimraf ./dist",
     "build": "NODE_ENV=production tsc",
+    "postbuild": "chmod +x ./dist/src/bin.js && ./prune-non-package-files.ts",
     "build:watch": "tsc -w",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
+    "build:release": "npm test && npm run build && npm publish",
     "prepare": "husky install",
-    "format": "prettier --write ."
+    "test:format": "prettier --check .",
+    "test:types": "tsc --noEmit",
+    "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
+    "test:unit": "jest jest.global-setup.test.ts src/",
+    "test:integration": "jest jest.global-setup.test.ts test/",
+    "pretest": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue' npm:generate npm:build",
+    "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan,green' --names 'test:' 'npm:test:*'",
+    "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -54,12 +58,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run pre-commit"
     }
   },
   "files": [
-    "dist",
-    "!dist/tsconfig.tsbuildinfo"
+    "dist/src/**/*.js",
+    "!dist/src/**/*.test.js",
+    "dist/src/**/*.d.ts",
+    "!dist/src/**/*.test.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -83,11 +89,14 @@
     "@swc/jest": "^0.2.20",
     "@types/args": "5.0.0",
     "@types/debug": "4.1.7",
+    "@types/glob": "^7.2.0",
     "@types/jest": "27.4.1",
+    "@types/minimatch": "^3.0.5",
     "@types/node": "17.0.21",
     "@types/pino": "^7.0.5",
     "@types/pump": "1.1.1",
     "@types/readable-stream": "2.3.13",
+    "@types/rimraf": "^3.0.2",
     "@types/split2": "3.2.1",
     "@types/strip-ansi": "5.2.1",
     "@types/supertest": "2.0.11",
@@ -102,8 +111,10 @@
     "eslint-plugin-jest": "^26.1.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "4.0.0",
+    "glob": "^7.2.0",
     "husky": "7.0.4",
     "jest": "^27.5.1",
+    "minimatch": "^5.0.1",
     "mockdate": "3.0.5",
     "pino": "^7.6.5",
     "pino-debug": "2.0.0",

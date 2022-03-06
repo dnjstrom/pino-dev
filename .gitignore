@@ -1,7 +1,7 @@
 node_modules
 dist
-examples.txt
-.vscode/
 examples.ndjson
+.vscode/
 coverage/
 .DS_Store
+.swc

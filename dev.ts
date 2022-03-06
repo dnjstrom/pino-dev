@@ -1,7 +1,7 @@
-import { examples } from "./examples";
-import { prettifierFactory } from "../../src";
+import { examples } from "./test/utils/examples";
+import pinoDev from "./src";
 
-const prettifier = prettifierFactory();
+const prettifier = pinoDev();
 
 examples.map((input) => {
   const output = prettifier(

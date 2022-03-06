@@ -36,5 +36,13 @@ export const overrideDynamicLogProperties = <T extends Input>(log: T): T => {
     log.responseTime = 123;
   }
 
+  if (log.req?.remotePort !== undefined) {
+    log.req.remotePort = 12345;
+  }
+
+  if (log.req?.headers?.host !== undefined) {
+    log.req.headers.host = "127.0.0.1:12345";
+  }
+
   return log;
 };
