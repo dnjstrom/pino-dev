@@ -56,11 +56,13 @@ main()
 
     if ("stdout" in err) {
       const buffer: Buffer = err.stdout;
+      console.log("## STDOUT ##########");
       console.log(buffer.toString());
     }
 
     if ("stderr" in err) {
       const buffer: Buffer = err.stderr;
+      console.error("## STDERR ##########");
       console.error(buffer.toString());
     }
   })
