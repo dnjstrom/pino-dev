@@ -1,4 +1,4 @@
-import { prettifierFactory } from ".";
+import prettifierFactory from ".";
 import { examples } from "../test/utils/examples";
 
 describe("formatting examples", () => {

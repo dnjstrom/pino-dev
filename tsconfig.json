@@ -21,7 +21,8 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false,
-    "declaration": true
+    "declaration": true,
+    "resolveJsonModule": true
   },
 
   // "include": ["src", "types"],

@@ -5,7 +5,7 @@ import fs from "fs";
 import pump from "pump";
 import split from "split2";
 import { Transform } from "readable-stream";
-import { prettifierFactory } from "./index";
+import prettifierFactory from "./index";
 import args from "args";
 import bourne from "@hapi/bourne";
 import { debug } from "./debug";

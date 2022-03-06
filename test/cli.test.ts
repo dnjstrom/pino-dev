@@ -1,11 +1,12 @@
 import { execSync } from "child_process";
 import { examples } from "./utils/examples";
-import * as path from "path";
+import path from "path";
+import packageJson from "../package.json";
 
-const binPath = path.resolve(__dirname, "../src/bin.ts");
+const BIN_PATH = path.resolve(__dirname, "..", packageJson.bin["pino-dev"]);
 
 const runCli = (input: string, flags = "") =>
-  execSync(`FORCE_COLOR=0 node -r @swc-node/register ${binPath} ${flags}`, {
+  execSync(`FORCE_COLOR=0 ${BIN_PATH} ${flags}`, {
     input,
   }).toString();
 

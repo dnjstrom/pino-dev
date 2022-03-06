@@ -1,7 +1,10 @@
 import { pino } from "pino";
-import { prettifierFactory as pinoDev } from "../src/index";
 import { ListDestination } from "./utils/ListDestination";
 import MockDate from "mockdate";
+import packageJson from "../package.json";
+import path from "path";
+
+const MAIN_PATH = path.resolve(__dirname, "..", packageJson.main);
 
 MockDate.set("2020");
 
@@ -9,7 +12,9 @@ describe("Programmatic usage", () => {
   let destination: ListDestination;
   let logger: pino.Logger;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    // eslint-disable-next-line node/no-unsupported-features/es-syntax
+    const pinoDev = (await import(MAIN_PATH)).default;
     destination = new ListDestination();
     logger = pino(
       { level: "trace", prettyPrint: { colorize: false }, prettifier: pinoDev },

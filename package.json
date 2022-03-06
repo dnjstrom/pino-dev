@@ -12,7 +12,7 @@
     "node": ">=8.10.0"
   },
   "scripts": {
-    "generate": "sh ./test/utils/generateAllExamples.sh",
+    "generate": "./test/utils/generateAllExamples.sh",
     "format": "prettier --write .",
     "dev": "clear; ts-node-dev --inspect --clear --rs ./dev.ts",
     "jest": "jest --coverage",
@@ -20,6 +20,7 @@
     "jest:watch": "node --inspect ./node_modules/.bin/jest --runInBand --coverage --watch",
     "prebuild": "rimraf ./dist",
     "build": "NODE_ENV=production tsc",
+    "postbuild": "chmod +x ./dist/src/bin.js && ./prune-non-package-files.ts",
     "build:watch": "tsc -w",
     "build:release": "npm test && npm run build && npm publish",
     "prepare": "husky install",
@@ -27,8 +28,8 @@
     "test:types": "tsc --noEmit",
     "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
     "test:unit": "jest jest.global-setup.test.ts src/",
-    "pretest:integration": "npm run generate",
     "test:integration": "jest jest.global-setup.test.ts test/",
+    "pretest": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue' npm:generate npm:build",
     "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan,green' --names 'test:' 'npm:test:*'",
     "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit"
   },
@@ -61,7 +62,10 @@
     }
   },
   "files": [
-    "dist/src/**/*[!test].js"
+    "dist/src/**/*.js",
+    "!dist/src/**/*.test.js",
+    "dist/src/**/*.d.ts",
+    "!dist/src/**/*.test.d.ts"
   ],
   "repository": {
     "type": "git",
