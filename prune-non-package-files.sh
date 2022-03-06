@@ -3,8 +3,13 @@
 # Exit if any command fails
 set -e
 
+echo "PWD: $(pwd)"
+echo "## LS #####"
+ls
+echo "###########"
+
 # Pack the archive
-archive=$(yarn pack)
+archive=$(npm pack)
 
 # Replace build folder with package contents
 tar -xf "$archive"
