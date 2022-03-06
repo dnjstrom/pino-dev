@@ -25,9 +25,6 @@
     "resolveJsonModule": true
   },
 
-  // "include": ["src", "types"],
-  // "exclude": ["test", "**/*.test.*"],
-
   "ts-node": {
     "transpileOnly": true,
     "swc": true
