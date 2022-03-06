@@ -1,6 +1,6 @@
 # pino-dev
 
-A simple prettifier for [pino](https://github.com/pinojs/pino) with built-in support for common ecosystem packages. Designed to be clear, unintrusive and to the point with sensible defaults optimized for use during development.
+A simple prettifier for [pino](https://github.com/pinojs/pino) with built-in support for common ecosystem packages. Designed to be clear, unintrusive and to the point with sensible defaults optimized for development use.
 
 ![Node.js CI](https://github.com/dnjstrom/pino-dev/actions/workflows/node.js.yml/badge.svg)
 ![Codeql Analysis](https://github.com/dnjstrom/pino-dev/actions/workflows/codeql-analysis.yml/badge.svg)
@@ -28,13 +28,7 @@ npm install --save-dev pino-dev
 yarn add --dev pino-dev
 ```
 
-then pipe the output of your `pino`-enhanced app to the `pino-dev` cli
-
-```bash
-./start-your-app | pino-dev
-```
-
-Often it's convenient to add this to your package.json scripts to not have to remember it.
+then pipe the output of your `pino`-enhanced app to the `pino-dev` cli in your `package.json` scripts.
 
 ```json
 {
@@ -44,15 +38,15 @@ Often it's convenient to add this to your package.json scripts to not have to re
 }
 ```
 
-In some situations using `npx` can also be really convenient:
+In some situations using `npx` can also be convenient to pipe arbitrary commands through `pino-dev`:
 
 ```bash
-yarn start | npx pino-dev
+cat server.log | npx pino-dev
 ```
 
 ## Configuration
 
-Configuration is preferably stored as a `pino-dev.config.json` or `pino-dev.config.js` file at the root of your repo. It's also possible to use a `"pino-dev": {...}` key in your `package.json`.
+Configuration can be stored as a `pino-dev.config.json` or `pino-dev.config.js` file at the root of your repo. It's also possible to use a `"pino-dev": {...}` key in your `package.json`.
 
 ### Default config
 
@@ -76,15 +70,19 @@ Configuration is preferably stored as a `pino-dev.config.json` or `pino-dev.conf
 }
 ```
 
-#### newline
+#### newline (string)
 
 The newline character used in prettified output. Usually dependent on your operating system, it's either "\n" (default) or "\r\n".
 
-#### time-format
+#### time-format (string)
 
 The time format to use (syntax according to https://www.npmjs.com/package/date-fns).
 
-#### propertyMap
+#### colorize (boolean)
+
+Forces colors on or off. If left undefined color support is detected automatically.
+
+#### propertyMap (Record<string, string>)
 
 This configuration allows you to map arbitrary incoming properties to semantic pino-dev properties using json. For instance,
 
