@@ -12,10 +12,11 @@ const mkdir = promisify(fs.mkdir);
 const rm = promisify(rimraf);
 const rename = promisify(fs.rename);
 
+const PACKAGE_ROOT = path.resolve(__dirname);
 const BUILD_FOLDER = "dist";
-const BUILD_FOLDER_PATH = path.resolve(__dirname, BUILD_FOLDER);
+const BUILD_FOLDER_PATH = path.resolve(PACKAGE_ROOT, BUILD_FOLDER);
 const TMP_FOLDER = path.resolve(
-  __dirname,
+  PACKAGE_ROOT,
   `.prune-non-package-files-${crypto.randomBytes(10).toString("hex")}`
 );
 
@@ -23,7 +24,7 @@ const main = async () => {
   await mkdir(TMP_FOLDER);
 
   const output = execSync(`npm pack --pack-destination ${TMP_FOLDER} 2>&1`, {
-    cwd: __dirname,
+    cwd: PACKAGE_ROOT,
   }).toString();
 
   const packageFileName = output.match(/filename:\s+(.+)/i)?.[1];
@@ -35,7 +36,7 @@ const main = async () => {
   execSync(
     `tar -xf ${path.join(TMP_FOLDER, packageFileName)} -C ${TMP_FOLDER}`,
     {
-      cwd: __dirname,
+      cwd: PACKAGE_ROOT,
     }
   );
 
@@ -61,12 +62,14 @@ main()
       const buffer: Buffer = err.stdout;
       console.log("## STDOUT ##########");
       console.log(buffer.toString());
+      console.error("####################");
     }
 
     if ("stderr" in err) {
       const buffer: Buffer = err.stderr;
       console.error("## STDERR ##########");
       console.error(buffer.toString());
+      console.error("####################");
     }
   })
   .finally(cleanupTmpDir);
