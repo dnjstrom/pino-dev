@@ -7,7 +7,7 @@ import { Input } from "./parse/Input";
 import { PartialDeep } from "type-fest";
 import { mapProperties } from "./parse/mapProperties";
 
-export default (
+export const prettifierFactory = (
   options: PartialDeep<Config> = {}
 ): ((line: string | unknown) => string) => {
   const opts = mergeConfig(config, options);
@@ -33,3 +33,5 @@ export default (
     return format(input, opts) + config.newline;
   };
 };
+
+export default prettifierFactory;
