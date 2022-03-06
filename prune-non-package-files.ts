@@ -2,9 +2,15 @@
 
 // eslint-disable-next-line node/shebang
 import { execSync } from "child_process";
-import { mkdir, rm, rename } from "fs/promises";
+import fs from "fs";
 import crypto from "crypto";
 import path from "path";
+import { promisify } from "util";
+import rimraf from "rimraf";
+
+const mkdir = promisify(fs.mkdir);
+const rm = promisify(rimraf);
+const rename = promisify(fs.rename);
 
 const BUILD_FOLDER = "dist";
 const BUILD_FOLDER_PATH = path.resolve(__dirname, BUILD_FOLDER);
@@ -30,7 +36,7 @@ const main = async () => {
     `tar -xf ${path.join(TMP_FOLDER, packageFileName)} -C ${TMP_FOLDER}`
   );
 
-  await rm(BUILD_FOLDER_PATH, { recursive: true, force: true });
+  await rm(BUILD_FOLDER_PATH);
 
   await rename(
     path.join(TMP_FOLDER, "package", BUILD_FOLDER),
@@ -39,7 +45,7 @@ const main = async () => {
 };
 
 const cleanupTmpDir = async () => {
-  rm(TMP_FOLDER, { recursive: true, force: true });
+  rm(TMP_FOLDER);
 };
 
 main().catch(console.error).finally(cleanupTmpDir);
