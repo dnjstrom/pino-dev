@@ -22,9 +22,9 @@ const TMP_FOLDER = path.resolve(
 const main = async () => {
   await mkdir(TMP_FOLDER);
 
-  const output = execSync(
-    `npm pack --pack-destination ${TMP_FOLDER} 2>&1`
-  ).toString();
+  const output = execSync(`npm pack --pack-destination ${TMP_FOLDER} 2>&1`, {
+    cwd: __dirname,
+  }).toString();
 
   const packageFileName = output.match(/filename:\s+(.+)/i)?.[1];
 
@@ -33,7 +33,10 @@ const main = async () => {
   }
 
   execSync(
-    `tar -xf ${path.join(TMP_FOLDER, packageFileName)} -C ${TMP_FOLDER}`
+    `tar -xf ${path.join(TMP_FOLDER, packageFileName)} -C ${TMP_FOLDER}`,
+    {
+      cwd: __dirname,
+    }
   );
 
   await rm(BUILD_FOLDER_PATH);
