@@ -48,4 +48,20 @@ const cleanupTmpDir = async () => {
   rm(TMP_FOLDER);
 };
 
-main().catch(console.error).finally(cleanupTmpDir);
+main()
+  .catch((err) => {
+    process.exitCode = 1;
+
+    console.error(err);
+
+    if ("stdout" in err) {
+      const buffer: Buffer = err.stdout;
+      console.log(buffer.toString());
+    }
+
+    if ("stderr" in err) {
+      const buffer: Buffer = err.stderr;
+      console.error(buffer.toString());
+    }
+  })
+  .finally(cleanupTmpDir);
