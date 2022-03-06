@@ -26,7 +26,7 @@
     "prebuild": "rimraf ./dist",
     "build": "NODE_ENV=production tsc",
     "build:watch": "tsc -w",
-    "build:release": "npm test && NODE_ENV=production npm run build && npm publish",
+    "build:release": "npm test && npm run build && npm publish",
     "prepare": "husky install",
     "format": "prettier --write ."
   },
