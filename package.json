@@ -98,7 +98,7 @@
     "@types/rimraf": "^3.0.2",
     "@types/split2": "3.2.1",
     "@types/strip-ansi": "5.2.1",
-    "@types/supertest": "2.0.11",
+    "@types/supertest": "2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "concurrently": "^7.0.0",
