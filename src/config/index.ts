@@ -1,5 +1,5 @@
 import JoyCon from "joycon";
-import bourne from "@hapi/bourne";
+import { parse } from "@hapi/bourne";
 import { debug } from "../debug";
 import { PartialDeep } from "type-fest";
 import { DEFAULT_CONFIG } from "./DEFAULT_CONFIG";
@@ -16,7 +16,7 @@ export type Config = {
 const joycon = new JoyCon({
   files: ["package.json", "pino-dev.config.json", "pino-dev.config.js"],
   packageKey: "pino-dev",
-  parseJSON: (str) => bourne.parse(str, { protoAction: "remove" }),
+  parseJSON: (str) => parse(str, { protoAction: "remove" }),
 });
 
 const { path, data } = joycon.loadSync();

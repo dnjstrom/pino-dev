@@ -7,7 +7,7 @@ import split from "split2";
 import { Transform } from "readable-stream";
 import pinoDev from "./index";
 import args from "args";
-import bourne from "@hapi/bourne";
+import { parse } from "@hapi/bourne";
 import { debug } from "./debug";
 import { Config } from "./config";
 import { PartialDeep } from "type-fest";
@@ -36,7 +36,7 @@ const parsedPropertyMap = (() => {
     return;
   }
 
-  const propertyMap = bourne.parse(propertyMapString, {
+  const propertyMap = parse(propertyMapString, {
     protoAction: "remove",
   });
 
