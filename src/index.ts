@@ -1,4 +1,4 @@
-import bourne from "@hapi/bourne";
+import { parse } from "@hapi/bourne";
 import { debug } from "./debug";
 import { format } from "./format";
 import { config, Config } from "./config";
@@ -21,7 +21,7 @@ export const prettifierFactory = (
     try {
       const parsed =
         typeof line === "string"
-          ? bourne.parse(line, { protoAction: "remove" })
+          ? parse(line, { protoAction: "remove" })
           : line;
       input = mapProperties(opts.propertyMap, parsed);
     } catch (err) {
