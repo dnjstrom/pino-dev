@@ -733,9 +733,11 @@
     "@swc/core-win32-x64-msvc" "1.2.175"
 
 "@swc/helpers@^0.3.6":
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.3.10.tgz#b896c6813257f0ac3e8ffe4fe8baeeb5feaca26b"
-  integrity sha512-ZCioFJz6NcLAA4zQqN6BORE/SFu2tBdwRU3JXQgLBu6JETvFElAOpaP0HYjWpbnCHFEJ5o6c4wWT8QeLbRoe2w==
+  version "0.3.13"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.3.13.tgz#b9af856aaa3804fefdd1544632dde35b7b6ff978"
+  integrity sha512-A1wswJhnqaLRn8uYVQ8YiNTtY5i/JIPmV08EXXjjTresIkUVUEUaFv/wXVhGXfRNYMvHPkuoMR1Nb6NgpxGjNg==
+  dependencies:
+    tslib "^2.4.0"
 
 "@swc/jest@^0.2.20":
   version "0.2.20"
