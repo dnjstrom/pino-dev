@@ -124,7 +124,7 @@
     "supertest": "6.2.3",
     "ts-node": "10.8.0",
     "ts-node-dev": "1.1.8",
-    "type-fest": "2.12.2",
+    "type-fest": "2.13.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
