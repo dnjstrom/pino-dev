@@ -41,14 +41,15 @@ export const prettifierFactory = (
 const build = async (
   options?: PartialDeep<Config>
 ): Promise<Transform & OnUnknown> => {
-  const pretty = prettifierFactory(options);
+  const opts = mergeConfig(config, options ?? {});
+  const pretty = prettifierFactory(opts);
 
   return abstractTransport(
     (source) => {
       const prettify = new Transform({
         objectMode: true,
         autoDestroy: true,
-        transform(chunk, enc, cb) {
+        transform(chunk, _enc, cb) {
           const line = pretty(chunk);
           cb(null, line);
         },
@@ -57,7 +58,7 @@ const build = async (
       const destination = new SonicBoom({ dest: 1, sync: false });
 
       source.on("unknown", function (line) {
-        process.stdout.write(line + "\n");
+        process.stdout.write(line + config.newline);
       });
 
       // @ts-expect-error SonicBoom is typed to not be writable, but is.
