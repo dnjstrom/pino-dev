@@ -6,6 +6,10 @@ import { mergeConfig } from "./config/mergeConfig";
 import { Input } from "./parse/Input";
 import { PartialDeep } from "type-fest";
 import { mapProperties } from "./parse/mapProperties";
+import abstractTransport, { OnUnknown } from "pino-abstract-transport";
+import { Transform } from "stream";
+import pump from "pump";
+import { SonicBoom } from "sonic-boom";
 
 export const prettifierFactory = (
   options: PartialDeep<Config> = {}
@@ -34,4 +38,35 @@ export const prettifierFactory = (
   };
 };
 
-export default prettifierFactory;
+const build = async (
+  options?: PartialDeep<Config>
+): Promise<Transform & OnUnknown> => {
+  const pretty = prettifierFactory(options);
+
+  return abstractTransport(
+    (source) => {
+      const prettify = new Transform({
+        objectMode: true,
+        autoDestroy: true,
+        transform(chunk, enc, cb) {
+          const line = pretty(chunk);
+          cb(null, line);
+        },
+      });
+
+      const destination = new SonicBoom({ dest: 1, sync: false });
+
+      source.on("unknown", function (line) {
+        process.stdout.write(line + "\n");
+      });
+
+      // @ts-expect-error SonicBoom is typed to not be writable, but is.
+      pump(source, prettify, destination);
+    },
+    {
+      parse: "lines",
+    }
+  );
+};
+
+export default build;

@@ -5,7 +5,7 @@ import fs from "fs";
 import pump from "pump";
 import split from "split2";
 import { Transform } from "readable-stream";
-import pinoDev from "./index";
+import { prettifierFactory } from "./index";
 import args from "args";
 import { parse } from "@hapi/bourne";
 import { debug } from "./debug";
@@ -52,7 +52,7 @@ debug(
   `pino-dev started with options: ${JSON.stringify(parsedOptions, null, 2)}`
 );
 
-const prettify = pinoDev(parsedOptions);
+const prettify = prettifierFactory(parsedOptions);
 
 const prettificationTransform = new Transform({
   transform(chunk: Buffer, _enc, cb) {

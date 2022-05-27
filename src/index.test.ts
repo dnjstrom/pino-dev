@@ -1,11 +1,11 @@
-import pinoDev from ".";
+import { prettifierFactory } from ".";
 import { examples } from "../test/utils/examples";
 
 describe("formatting examples", () => {
-  let prettifier: ReturnType<typeof pinoDev>;
+  let prettifier: ReturnType<typeof prettifierFactory>;
 
   beforeEach(() => {
-    prettifier = pinoDev({
+    prettifier = prettifierFactory({
       colorize: false,
     });
   });
