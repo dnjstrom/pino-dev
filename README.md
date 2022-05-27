@@ -105,3 +105,30 @@ Usage: pino-dev [options]
     -t, --time-format   The time format to use (syntax according to https://www.npmjs.com/package/date-fns).
     -v, --version       Output the version number
 ```
+
+## Programmatic usage
+
+Pino v7+ transports are supported and can be used as follows:
+
+```ts
+import pino from "pino";
+const transport = pino.transport({
+  target: "pino-dev",
+});
+const logger = pino(transport);
+```
+
+### Deprecated transport
+
+Previously it was possible to configure pino programmatically through the [`prettifier` and `prettyPrint` config](https://getpino.io/#/docs/api?id=prettyprint-boolean-object). Even though the feature is currently deprecated, it's still possible to do so by using the `prettifierFactory` export of `pino-dev`
+
+```ts
+import { prettifierFactory } from "pino-dev";
+
+const logger = pino({
+  prettifier: prettifierFactory,
+  prettyPrint: {
+    /* options to prettifierFactory */
+  },
+});
+```
