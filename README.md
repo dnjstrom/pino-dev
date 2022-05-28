@@ -108,7 +108,7 @@ Usage: pino-dev [options]
 
 ## Programmatic usage
 
-Pino v7+ transports are supported and can be used as follows:
+Pino [v7+ transports](https://getpino.io/#/docs/transports) are supported and can be used as follows:
 
 ```ts
 import pino from "pino";
