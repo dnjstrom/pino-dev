@@ -5,3 +5,4 @@ examples.ndjson
 coverage/
 .DS_Store
 .swc
+yarn.lock
