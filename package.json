@@ -136,7 +136,7 @@
     "joycon": "3.1.1",
     "pino-abstract-transport": "^1.0.0",
     "pump": "3.0.0",
-    "readable-stream": "4.0.0",
+    "readable-stream": "4.1.0",
     "sonic-boom": "^3.0.0",
     "split2": "4.1.0",
     "strip-ansi": "6.0.1"
