@@ -37,5 +37,8 @@ module.exports = {
     "node/no-missing-import": "off", // Handled by eslint-plugin-import
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-module-boundary-types": "error",
+    "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
+    "no-trailing-spaces": "error",
+    "eol-last": ["error", "always"],
   },
 };
