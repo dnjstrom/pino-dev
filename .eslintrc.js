@@ -13,7 +13,6 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
   ],
   settings: {
     node: {
