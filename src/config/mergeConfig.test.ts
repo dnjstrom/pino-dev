@@ -12,11 +12,11 @@ describe("mergeConfig", () => {
     });
 
     expect(merged).toMatchInlineSnapshot(`
-      Object {
+      {
         "colorize": undefined,
         "newline": "
       ",
-        "propertyMap": Object {
+        "propertyMap": {
           "err.stack": "err",
           "level": "level",
           "msg": "msg",
