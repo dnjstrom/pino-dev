@@ -14,6 +14,7 @@
   "scripts": {
     "generate": "./test/utils/generateAllExamples.sh",
     "format": "prettier --write .",
+    "predev": "npm install",
     "dev": "clear; ts-node-dev --inspect --clear --rs --transpile-only ./dev.ts",
     "jest": "jest --coverage",
     "jest:update": "jest --updateSnapshot",
