@@ -1,7 +1,7 @@
 import { getDeep } from "../utils/getDeep";
 import { setDeep } from "../utils/setDeep";
-import { Input } from "./Input";
-import { PropertyMap } from "./PropertyMap";
+import type { Input } from "./Input";
+import type { PropertyMap } from "./PropertyMap";
 
 export const mapProperties = (
   propertyMap: PropertyMap,

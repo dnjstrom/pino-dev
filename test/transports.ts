@@ -4,6 +4,7 @@ import packageJson from "../package.json";
 import path from "path";
 
 const MAIN_PATH = path.resolve(__dirname, "..", packageJson.main);
+
 MockDate.set("2020");
 
 const transport = pino.transport({

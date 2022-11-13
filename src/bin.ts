@@ -9,8 +9,8 @@ import { prettifierFactory } from "./index";
 import args from "args";
 import { parse } from "@hapi/bourne";
 import { debug } from "./debug";
-import { Config } from "./config";
-import { PartialDeep } from "type-fest";
+import type { Config } from "./config";
+import type { PartialDeep } from "type-fest";
 
 args
   .option(
@@ -30,7 +30,7 @@ args
 
 const options: Record<string, string> = args.parse(process.argv);
 const parsedPropertyMap = (() => {
-  const propertyMapString = options.propertyMap;
+  const propertyMapString = options["propertyMap"];
 
   if (!propertyMapString) {
     return;

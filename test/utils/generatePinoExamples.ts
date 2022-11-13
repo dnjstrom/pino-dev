@@ -30,9 +30,7 @@ export const generateExamples = async (): Promise<void> => {
     name: "My Logger",
   }).info("A logger with a name set");
 
-  pino({
-    base: undefined,
-  }).info("A logger without the base child logger");
+  pino({}).info("A logger without the base child logger");
 };
 
 generateExamples().catch(console.error);

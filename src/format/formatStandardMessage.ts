@@ -3,8 +3,8 @@ import { joinWith } from "../utils/joinWith";
 import { padLinesWithSpaces } from "../utils/padLinesWithSpaces";
 import { leftPad } from "../utils/leftPad";
 import { formatHeader } from "./formatHeader";
-import { Input } from "../parse/Input";
-import { Config } from "../config";
+import type { Input } from "../parse/Input";
+import type { Config } from "../config";
 
 export const formatStandardMessage = (input: Input, config: Config): string => {
   const headerText = formatHeader(input, config);

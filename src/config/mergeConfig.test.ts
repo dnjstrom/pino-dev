@@ -13,7 +13,6 @@ describe("mergeConfig", () => {
 
     expect(merged).toMatchInlineSnapshot(`
       {
-        "colorize": undefined,
         "newline": "
       ",
         "propertyMap": {

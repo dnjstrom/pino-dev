@@ -12,7 +12,7 @@ describe("Examples", () => {
         "{"level":50,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"An error message"}",
         "{"level":60,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"A fatal message"}",
         "{"level":30,"time":-14159025000,"pid":12345,"hostname":"localhost","name":"My Logger","msg":"A logger with a name set"}",
-        "{"level":30,"time":-14159025000,"msg":"A logger without the base child logger"}",
+        "{"level":30,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"A logger without the base child logger"}",
         "{"level":30,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"\\t    A message with leading whitespace"}",
         "{"level":30,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"A message with ending whitespace    \\t"}",
         "{"level":30,"time":-14159025000,"pid":12345,"hostname":"localhost","msg":"A multi-line message. Lorem ipsum\\ndolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,\\nfinibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,\\nporttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.\\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\\nVivamus vehicula ante nisi, id porta odio blandit ut."}",

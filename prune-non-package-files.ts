@@ -5,7 +5,7 @@ import fs from "fs";
 import globFunction from "glob";
 import { promisify } from "util";
 import packageJson from "./package.json";
-import { filter as makeFilterFor } from "minimatch";
+import minimatch from "minimatch";
 
 const BUILD_FOLDER = "dist";
 
@@ -19,9 +19,9 @@ const main = async () => {
   const fileMatchResults = packageJson.files.reduce<string[]>(
     (files, pattern) => {
       if (pattern[0] === "!") {
-        return files.filter(makeFilterFor(pattern));
+        return files.filter(minimatch.filter(pattern));
       } else {
-        return files.concat(buildFiles.filter(makeFilterFor(pattern)));
+        return files.concat(buildFiles.filter(minimatch.filter(pattern)));
       }
     },
     []
