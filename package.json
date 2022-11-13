@@ -32,7 +32,8 @@
     "test:integration": "jest jest.global-setup.test.ts test/",
     "pretest": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue' npm:generate npm:build",
     "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan,green' --names 'test:' 'npm:test:*'",
-    "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit"
+    "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit",
+    "update": "npm-check-updates --interactive"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -116,9 +117,10 @@
     "jest": "^29.3.1",
     "minimatch": "^5.1.0",
     "mockdate": "3.0.5",
-    "pino": "^7.6.5",
+    "npm-check-updates": "^16.3.25",
+    "pino": "^8.7.0",
     "pino-debug": "2.0.0",
-    "pino-http": "7.1.0",
+    "pino-http": "8.2.1",
     "prettier": "2.7.1",
     "regenerator-runtime": "^0.13.10",
     "rimraf": "3.0.2",

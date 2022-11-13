@@ -36,16 +36,26 @@ exports[`formatting examples formats example #6 correctly 1`] = `
 `;
 
 exports[`formatting examples formats example #7 correctly 1`] = `
-"02:56:15 Info: 	    A message with leading whitespace
+"02:56:15 [My Logger] Info: A logger with a name set
 "
 `;
 
 exports[`formatting examples formats example #8 correctly 1`] = `
-"02:56:15 Info: A message with ending whitespace    	
+"02:56:15 Info: A logger without the base child logger
 "
 `;
 
 exports[`formatting examples formats example #9 correctly 1`] = `
+"02:56:15 Info: 	    A message with leading whitespace
+"
+`;
+
+exports[`formatting examples formats example #10 correctly 1`] = `
+"02:56:15 Info: A message with ending whitespace    	
+"
+`;
+
+exports[`formatting examples formats example #11 correctly 1`] = `
 "02:56:15 Info: A multi-line message. Lorem ipsum
                dolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,
                finibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,
@@ -55,12 +65,12 @@ exports[`formatting examples formats example #9 correctly 1`] = `
 "
 `;
 
-exports[`formatting examples formats example #10 correctly 1`] = `
+exports[`formatting examples formats example #12 correctly 1`] = `
 "02:56:15 Info: A message with an object parameter
 "
 `;
 
-exports[`formatting examples formats example #11 correctly 1`] = `
+exports[`formatting examples formats example #13 correctly 1`] = `
 "02:56:15 Error: An error happened somehow
     Error: Oh noes!
     at /some/path/to/file:23:98
@@ -76,18 +86,8 @@ exports[`formatting examples formats example #11 correctly 1`] = `
 "
 `;
 
-exports[`formatting examples formats example #12 correctly 1`] = `
-"02:56:15 Info: Meta data via child logger
-"
-`;
-
-exports[`formatting examples formats example #13 correctly 1`] = `
-"02:56:15 [My Logger] Info: A logger with a name set
-"
-`;
-
 exports[`formatting examples formats example #14 correctly 1`] = `
-"02:56:15 Info: A logger without the base child logger
+"02:56:15 Info: Meta data via child logger
 "
 `;
 
