@@ -13,7 +13,6 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
   ],
   settings: {
     node: {
@@ -38,5 +37,8 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "import/no-named-as-default-member": "off",
+    "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
+    "no-trailing-spaces": "error",
+    "eol-last": ["error", "always"],
   },
 };

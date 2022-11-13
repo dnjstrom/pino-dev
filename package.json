@@ -35,18 +35,6 @@
     "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit",
     "update": "npm-check-updates --interactive"
   },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module"
-    },
-    "extends": [
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
-      "plugin:prettier/recommended"
-    ]
-  },
   "prettier": {},
   "jest": {
     "transform": {
@@ -106,13 +94,11 @@
     "@typescript-eslint/parser": "^5.42.1",
     "concurrently": "^7.5.0",
     "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.1.5",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "4.2.1",
     "glob": "^8.0.3",
     "husky": "8.0.2",
     "jest": "^29.3.1",
