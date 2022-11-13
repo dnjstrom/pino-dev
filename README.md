@@ -117,18 +117,3 @@ const transport = pino.transport({
 });
 const logger = pino(transport);
 ```
-
-### Deprecated transport
-
-Previously it was possible to configure pino programmatically through the [`prettifier` and `prettyPrint` config](https://getpino.io/#/docs/api?id=prettyprint-boolean-object). Even though the feature is currently deprecated, it's still possible to do so by using the `prettifierFactory` export of `pino-dev`
-
-```ts
-import { prettifierFactory } from "pino-dev";
-
-const logger = pino({
-  prettifier: prettifierFactory,
-  prettyPrint: {
-    /* options to prettifierFactory */
-  },
-});
-```
