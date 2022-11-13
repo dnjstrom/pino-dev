@@ -1,6 +1,5 @@
 node_modules
 dist
-examples.ndjson
 .vscode/
 coverage/
 .DS_Store

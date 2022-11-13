@@ -30,7 +30,7 @@
     "test:lint": "eslint '*/**/*.ts' --max-warnings 0",
     "test:unit": "jest jest.global-setup.test.ts src/",
     "test:integration": "jest jest.global-setup.test.ts test/",
-    "pretest": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue' npm:generate npm:build",
+    "pretest": "npm run build",
     "test": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan,green' --names 'test:' 'npm:test:*'",
     "pre-commit": "concurrently --kill-others-on-fail --group --timings --prefix-colors 'yellow,blue,magenta,cyan' npm:test:format npm:test:types npm:test:lint npm:test:unit",
     "update": "npm-check-updates --interactive"
