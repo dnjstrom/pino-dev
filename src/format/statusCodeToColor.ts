@@ -1,5 +1,5 @@
-import { Chalk } from "chalk";
-import { Config } from "../config";
+import type { Chalk } from "chalk";
+import type { Config } from "../config";
 import { getChalk } from "./getChalk";
 
 export const statusCodeToColor = (

@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from "http";
+import type { IncomingMessage, ServerResponse } from "http";
 
 type Request = Pick<IncomingMessage, "method" | "url" | "headers"> & {
   remotePort?: number;

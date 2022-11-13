@@ -1,4 +1,4 @@
-import { Input } from "../../src/parse/Input";
+import type { Input } from "../../src/parse/Input";
 
 const TIME = new Date("1969-07-21 02:56:15").getTime();
 

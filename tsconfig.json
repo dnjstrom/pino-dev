@@ -1,30 +1,23 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
-    // Support Node 12 (Oldest maintained LTS release)
-    // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
-    "lib": ["ES2019"],
+    // Support Node 14 (Oldest maintained LTS release)
+    // See:
+    //   - https://nodejs.org/en/about/releases/
+    //   - https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
+    "lib": ["ES2020"],
     "module": "commonjs",
-    "target": "ES2019",
+    "target": "ES2020",
 
     "outDir": "./dist",
     "typeRoots": ["./node_modules/@types", "./types"],
 
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "incremental": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
     "declaration": true,
     "resolveJsonModule": true
   },
-
   "ts-node": {
     "transpileOnly": true,
     "swc": true

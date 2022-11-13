@@ -1,10 +1,10 @@
 import JoyCon from "joycon";
 import { parse } from "@hapi/bourne";
 import { debug } from "../debug";
-import { PartialDeep } from "type-fest";
+import type { PartialDeep } from "type-fest";
 import { DEFAULT_CONFIG } from "./DEFAULT_CONFIG";
 import { mergeConfig } from "./mergeConfig";
-import { PropertyMap } from "../parse/PropertyMap";
+import type { PropertyMap } from "../parse/PropertyMap";
 
 export type Config = {
   newline: string;

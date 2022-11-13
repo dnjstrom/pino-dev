@@ -2,8 +2,8 @@ import { format } from "date-fns";
 import { levelToColor } from "./levelToColor";
 import { levelToString } from "./levelToString";
 import { joinWith } from "../utils/joinWith";
-import { Input } from "../parse/Input";
-import { Config } from "../config";
+import type { Input } from "../parse/Input";
+import type { Config } from "../config";
 import { getChalk } from "./getChalk";
 
 export const formatHeader = (input: Input, config: Config): string => {
