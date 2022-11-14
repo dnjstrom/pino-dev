@@ -81,7 +81,7 @@
     "@types/args": "5.0.0",
     "@types/debug": "4.1.7",
     "@types/glob": "^8.0.0",
-    "@types/jest": "29.2.2",
+    "@types/jest": "29.2.3",
     "@types/minimatch": "^5.1.2",
     "@types/node": "18.11.9",
     "@types/pump": "1.1.1",
