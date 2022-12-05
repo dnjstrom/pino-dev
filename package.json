@@ -111,7 +111,7 @@
     "prettier": "2.8.0",
     "regenerator-runtime": "^0.13.10",
     "rimraf": "3.0.2",
-    "supertest": "6.3.1",
+    "supertest": "6.3.2",
     "ts-node": "10.9.1",
     "ts-node-dev": "2.0.0",
     "type-fest": "3.3.0",
