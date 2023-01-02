@@ -107,7 +107,7 @@
     "npm-check-updates": "^16.3.25",
     "pino": "^8.7.0",
     "pino-debug": "2.0.0",
-    "pino-http": "8.3.0",
+    "pino-http": "8.3.1",
     "prettier": "2.8.1",
     "regenerator-runtime": "^0.13.10",
     "rimraf": "3.0.2",
