@@ -102,7 +102,7 @@
     "glob": "^8.0.3",
     "husky": "8.0.3",
     "jest": "^29.3.1",
-    "minimatch": "^5.1.0",
+    "minimatch": "^6.0.4",
     "mockdate": "3.0.5",
     "npm-check-updates": "^16.3.25",
     "pino": "^8.7.0",
