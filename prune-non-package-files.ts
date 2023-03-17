@@ -2,14 +2,13 @@
 
 // eslint-disable-next-line node/shebang
 import fs from "fs";
-import globFunction from "glob";
+import { glob } from "glob";
 import { promisify } from "util";
 import packageJson from "./package.json";
 import minimatch from "minimatch";
 
 const BUILD_FOLDER = "dist";
 
-const glob = promisify(globFunction);
 const lstat = promisify(fs.lstat);
 const unlink = promisify(fs.unlink);
 
