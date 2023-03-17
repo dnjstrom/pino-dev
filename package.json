@@ -85,7 +85,7 @@
     "@types/node": "18.15.3",
     "@types/pump": "1.1.1",
     "@types/readable-stream": "2.3.15",
-    "@types/rimraf": "^3.0.2",
+    "@types/rimraf": "^4.0.5",
     "@types/split2": "3.2.1",
     "@types/strip-ansi": "5.2.1",
     "@types/supertest": "2.0.12",
