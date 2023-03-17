@@ -1,16 +1,12 @@
 #!/usr/bin/env ts-node
 
 // eslint-disable-next-line node/shebang
-import fs from "fs";
+import { lstat, unlink } from "fs/promises";
 import { glob } from "glob";
-import { promisify } from "util";
 import packageJson from "./package.json";
-import minimatch from "minimatch";
+import { minimatch } from "minimatch";
 
 const BUILD_FOLDER = "dist";
-
-const lstat = promisify(fs.lstat);
-const unlink = promisify(fs.unlink);
 
 const main = async () => {
   const buildFiles = await glob(`${BUILD_FOLDER}/**/*`);
