@@ -107,7 +107,7 @@
     "pino-debug": "2.0.0",
     "pino-http": "8.4.0",
     "prettier": "2.8.8",
-    "regenerator-runtime": "^0.13.11",
+    "regenerator-runtime": "^0.14.0",
     "rimraf": "5.0.1",
     "supertest": "6.3.3",
     "ts-node": "10.9.1",
