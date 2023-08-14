@@ -84,7 +84,7 @@
     "@types/minimatch": "^5.1.2",
     "@types/node": "20.4.10",
     "@types/pump": "1.1.1",
-    "@types/readable-stream": "4.0.0",
+    "@types/readable-stream": "4.0.1",
     "@types/split2": "4.2.0",
     "@types/strip-ansi": "5.2.1",
     "@types/supertest": "2.0.12",
