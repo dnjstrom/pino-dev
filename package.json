@@ -87,7 +87,7 @@
     "@types/readable-stream": "4.0.3",
     "@types/split2": "4.2.1",
     "@types/strip-ansi": "5.2.1",
-    "@types/supertest": "2.0.13",
+    "@types/supertest": "2.0.14",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "concurrently": "^8.0.1",
