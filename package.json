@@ -83,7 +83,7 @@
     "@types/jest": "29.5.5",
     "@types/minimatch": "^5.1.2",
     "@types/node": "20.8.7",
-    "@types/pump": "1.1.1",
+    "@types/pump": "1.1.2",
     "@types/readable-stream": "4.0.3",
     "@types/split2": "4.2.2",
     "@types/strip-ansi": "5.2.1",
