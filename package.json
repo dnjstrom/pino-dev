@@ -78,7 +78,7 @@
     "@swc/helpers": "^0.5.1",
     "@swc/jest": "^0.2.26",
     "@types/args": "5.0.1",
-    "@types/debug": "4.1.9",
+    "@types/debug": "4.1.10",
     "@types/glob": "^8.1.0",
     "@types/jest": "29.5.5",
     "@types/minimatch": "^5.1.2",
