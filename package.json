@@ -80,7 +80,7 @@
     "@types/args": "5.0.2",
     "@types/debug": "4.1.10",
     "@types/glob": "^8.1.0",
-    "@types/jest": "29.5.5",
+    "@types/jest": "29.5.6",
     "@types/minimatch": "^5.1.2",
     "@types/node": "20.8.7",
     "@types/pump": "1.1.2",
