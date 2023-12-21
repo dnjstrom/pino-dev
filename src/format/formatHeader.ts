@@ -14,7 +14,7 @@ export const formatHeader = (input: Input, config: Config): string => {
       : input.time;
 
   const labels = [input.name, input.ns && chalk.magenta(input.ns)].filter(
-    Boolean
+    Boolean,
   );
   const labelsText = labels.length > 0 && `[${labels.join(" > ")}]`;
   const levelText =

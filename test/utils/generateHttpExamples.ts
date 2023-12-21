@@ -14,7 +14,7 @@ export const generateExamples = async (): Promise<void> => {
         httpLogger(req, res);
         req.log.info("something else");
         res.end("hello world");
-      })
+      }),
     )
       .get("/greet/world")
       .end((err: Error | undefined) => {

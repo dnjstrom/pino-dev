@@ -15,7 +15,7 @@ export const formatStandardMessage = (input: Input, config: Config): string => {
   const messageText = padLinesWithSpaces(
     headerLength + 1,
     input.msg,
-    config.newline
+    config.newline,
   );
   const result = joinWith(" ", [headerText, messageText]);
 

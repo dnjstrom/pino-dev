@@ -5,7 +5,7 @@ import type { PropertyMap } from "./PropertyMap";
 
 export const mapProperties = (
   propertyMap: PropertyMap,
-  input: Record<string, unknown>
+  input: Record<string, unknown>,
 ): Input => {
   const mapped: Partial<Input> = Object.entries(propertyMap).reduce(
     (agg, [to, from]) => {
@@ -23,7 +23,7 @@ export const mapProperties = (
 
       return agg;
     },
-    {}
+    {},
   );
 
   if (mapped.msg == null) {

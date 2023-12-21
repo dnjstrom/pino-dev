@@ -12,7 +12,7 @@ import pump from "pump";
 import { SonicBoom } from "sonic-boom";
 
 export const prettifierFactory = (
-  options: PartialDeep<Config> = {}
+  options: PartialDeep<Config> = {},
 ): ((line: string | unknown) => string) => {
   const opts = mergeConfig(config, options);
 
@@ -39,7 +39,7 @@ export const prettifierFactory = (
 };
 
 const build = async (
-  options?: PartialDeep<Config>
+  options?: PartialDeep<Config>,
 ): Promise<Transform & OnUnknown> => {
   const opts = mergeConfig(config, options ?? {});
   const pretty = prettifierFactory(opts);
@@ -66,7 +66,7 @@ const build = async (
     },
     {
       parse: "lines",
-    }
+    },
   );
 };
 

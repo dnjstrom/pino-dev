@@ -7,7 +7,7 @@ import { getChalk } from "./getChalk";
 
 export const formatHttpResponseMessage = (
   input: Input,
-  config: Config
+  config: Config,
 ): string => {
   const chalk = getChalk(config);
   const headerText = formatHeader(input, config);
@@ -16,7 +16,7 @@ export const formatHttpResponseMessage = (
     input.res?.statusCode &&
     statusCodeToColor(
       input.res.statusCode,
-      config
+      config,
     )(String(input.res.statusCode));
   const responseTimeText = input.responseTime && `${input.responseTime}ms`;
 

@@ -15,15 +15,15 @@ import type { PartialDeep } from "type-fest";
 args
   .option(
     ["m", "property-map"],
-    "Map arbitrary incoming properties to semantic pino-dev properties using json."
+    "Map arbitrary incoming properties to semantic pino-dev properties using json.",
   )
   .option(
     ["t", "time-format"],
-    "The time format to use (syntax according to https://www.npmjs.com/package/date-fns)."
+    "The time format to use (syntax according to https://www.npmjs.com/package/date-fns).",
   )
   .option(
     ["n", "newline"],
-    `The newline character used in prettified output. Either "\\n" (default) or "\\r\\n".`
+    `The newline character used in prettified output. Either "\\n" (default) or "\\r\\n".`,
   )
   .option(["-", "color"], "Force color.")
   .option(["-", "no-color"], "Force no color.");
@@ -49,7 +49,7 @@ const parsedOptions: PartialDeep<Config> = {
 };
 
 debug(
-  `pino-dev started with options: ${JSON.stringify(parsedOptions, null, 2)}`
+  `pino-dev started with options: ${JSON.stringify(parsedOptions, null, 2)}`,
 );
 
 const prettify = prettifierFactory(parsedOptions);
@@ -70,7 +70,7 @@ pump(
   process.stdin,
   split(), // Split chunks on newlines
   prettificationTransform, // prettify each chunk
-  process.stdout
+  process.stdout,
 );
 
 // https://github.com/pinojs/pino/pull/358

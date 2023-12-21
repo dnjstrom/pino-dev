@@ -5,7 +5,7 @@ const prettifier = prettifierFactory();
 
 examples.map((input) => {
   const output = prettifier(
-    typeof input === "string" ? input : JSON.stringify(input)
+    typeof input === "string" ? input : JSON.stringify(input),
   );
   process.stdout.write(output);
 });

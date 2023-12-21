@@ -1,6 +1,6 @@
 export const getDeep = <T = unknown>(
   keys: string[],
-  obj: unknown
+  obj: unknown,
 ): T | undefined => {
   const [key, ...remainingKeys] = keys;
 
