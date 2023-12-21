@@ -1,15 +1,15 @@
 export const setDeep = <T = unknown>(
   obj: Record<string, unknown>,
   keys: string[],
-  value: T
+  value: T,
 ): Record<string, unknown> => {
   const [key, ...remainingKeys] = keys;
 
   if (key == null) {
     throw new Error(
       `Invalid path "${keys}" when setting "${value}" in \`${JSON.stringify(
-        obj
-      )}\`.`
+        obj,
+      )}\`.`,
     );
   } else if (remainingKeys.length === 0) {
     obj[key] = value;

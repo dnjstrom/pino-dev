@@ -3,5 +3,5 @@ import { repeatString } from "./repeatString";
 export const leftPad = (
   amount: number,
   str: string,
-  padCharacter = " "
+  padCharacter = " ",
 ): string => repeatString(amount, padCharacter) + str;

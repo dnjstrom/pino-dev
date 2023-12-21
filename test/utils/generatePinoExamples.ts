@@ -17,7 +17,7 @@ export const generateExamples = async (): Promise<void> => {
   logger.info("\t    A message with leading whitespace");
   logger.info("A message with ending whitespace    \t");
   logger.info(
-    "A multi-line message. Lorem ipsum\ndolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,\nfinibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,\nporttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\nVivamus vehicula ante nisi, id porta odio blandit ut."
+    "A multi-line message. Lorem ipsum\ndolor sit amet, consectetur adipiscing elit. Vivamus vitae orci volutpat,\nfinibus augue vitae, pellentesque nibh. Maecenas lacus erat, maximus sit amet ligula sed,\nporttitor tincidunt felis. Donec dapibus eget est eu fermentum. Sed eu augue turpis.\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\nVivamus vehicula ante nisi, id porta odio blandit ut.",
   );
   logger.info({ foo: "bar", baz: 42 }, "A message with an object parameter");
   logger.error(new Error("Oh noes!"), "An error happened somehow");

@@ -11,7 +11,7 @@ describe("formatHttpResponseMessage", () => {
         msg: "My message",
         time,
       },
-      DEFAULT_CONFIG
+      DEFAULT_CONFIG,
     );
     expect(stripAnsi(formatted)).toMatchInlineSnapshot(`"07:10:16:"`);
   });
@@ -25,10 +25,10 @@ describe("formatHttpResponseMessage", () => {
         res: { statusCode: 200 },
         responseTime: 1337,
       },
-      DEFAULT_CONFIG
+      DEFAULT_CONFIG,
     );
     expect(stripAnsi(formatted)).toMatchInlineSnapshot(
-      `"07:10:16: GET https://example.com/test 200 1337ms"`
+      `"07:10:16: GET https://example.com/test 200 1337ms"`,
     );
   });
 });

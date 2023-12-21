@@ -4,5 +4,5 @@
 
 export const joinWith = (
   separator: string,
-  items: Array<string | Falsy>
+  items: Array<string | Falsy>,
 ): string => items.filter(Boolean).join(separator);

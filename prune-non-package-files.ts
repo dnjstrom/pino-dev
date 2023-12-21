@@ -19,7 +19,7 @@ const main = async () => {
         return files.concat(buildFiles.filter(minimatch.filter(pattern)));
       }
     },
-    []
+    [],
   );
 
   const validFiles = new Set(fileMatchResults);
@@ -36,7 +36,7 @@ const main = async () => {
       }
 
       await unlink(file);
-    })
+    }),
   );
 };
 

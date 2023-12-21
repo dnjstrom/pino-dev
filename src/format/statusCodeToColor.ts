@@ -4,7 +4,7 @@ import { getChalk } from "./getChalk";
 
 export const statusCodeToColor = (
   statusCode: number,
-  config: Config
+  config: Config,
 ): Chalk => {
   const chalk = getChalk(config);
 
