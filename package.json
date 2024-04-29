@@ -125,7 +125,7 @@
     "pino-abstract-transport": "^1.1.0",
     "pump": "3.0.0",
     "readable-stream": "4.5.2",
-    "sonic-boom": "^3.7.0",
+    "sonic-boom": "^4.0.1",
     "split2": "4.2.0",
     "strip-ansi": "6.0.1"
   }
