@@ -123,7 +123,7 @@
     "debug": "4.3.7",
     "joycon": "3.1.1",
     "pino-abstract-transport": "^2.0.0",
-    "pump": "3.0.1",
+    "pump": "3.0.2",
     "readable-stream": "4.5.2",
     "sonic-boom": "^4.0.1",
     "split2": "4.2.0",
